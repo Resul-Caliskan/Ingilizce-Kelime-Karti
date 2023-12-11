@@ -18,10 +18,6 @@ const chartConfig = {
     fontSize: 14,
     letterSpacing: 1,
   },
-  propsForBackgroundLines: {
-    strokeDasharray: "5,5", // Pattern of dashes and gaps used to paint the lines (e.g., '5,5')
-    strokeWidth: 0.5, // Width of the lines
-  },
   propsForDots: {
     // Customization properties for the dots in line chart
     r: "6", // Radius of the dots
@@ -62,12 +58,11 @@ const Seriler = ({ seriesName }) => {
       <LineChart
         data={data}
         width={Dimensions.get("window").width - 70}
-        height={Dimensions.get("window").height / 4.9}
+        height={Dimensions.get("window").height / 4.4}
         chartConfig={chartConfig}
         verticalLabelRotation={-90}
         withVerticalLines={false}
-        fromZero={true}
-        
+        fromZero={true} 
         bezier
       />
     </View>
@@ -77,8 +72,8 @@ const Seriler = ({ seriesName }) => {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: Colors.navyBlue,
-    width: Dimensions.get("window").width - 30,
-    height: Dimensions.get("window").height / 3.5,
+    width: '93%',
+    height: Dimensions.get("window").height / 3.2,
     borderRadius: 30,
     padding: 10,
     margin: 5,
