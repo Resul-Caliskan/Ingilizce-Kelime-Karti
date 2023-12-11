@@ -1,4 +1,4 @@
 export const Colors ={
-    black:"#00000",
+    black:"#012322",
     navyBlue:"#0d635c"
 }

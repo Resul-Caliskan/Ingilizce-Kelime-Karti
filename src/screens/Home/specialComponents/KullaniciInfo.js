@@ -23,7 +23,7 @@ const KullaniciInfo = ({ userName, basariSirasi }) => {
           <Text style={styles.continueText}>Sıralaman: {basariSirasi}</Text>
           <Image
             style={styles.avatar2}
-            source={require("../../../../assets/fire.png")}
+            source={require("../../../../assets/adaptive-icon.png")}
           />
         </View>
       </View>

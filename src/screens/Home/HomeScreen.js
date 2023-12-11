@@ -3,13 +3,15 @@ import React from "react";
 import KullaniciInfo from "./specialComponents/KullaniciInfo";
 import Seriler from "./specialComponents/Seriler";
 import AnlamliSozler from "./specialComponents/AnlamliSoz";
+import { Colors } from "../../constants/colors";
+import Kart from "./specialComponents/Kart";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <KullaniciInfo userName={"Resul"} basariSirasi={7}/>
       <Seriler seriesName={"7"}  />
-      <AnlamliSozler soz={"Hayat Kısa Kuşlar Uçuyor"} />
+      <Kart/>
     </View>
   );
 }
@@ -20,6 +22,6 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "black",
+    backgroundColor: Colors.black,
   },
 });
