@@ -71,7 +71,7 @@ const Seriler = ({ seriesName }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: Colors.navyBlue,
+    backgroundColor: Colors.element1,
     width: '93%',
     height: Dimensions.get("window").height / 3.2,
     borderRadius: 30,

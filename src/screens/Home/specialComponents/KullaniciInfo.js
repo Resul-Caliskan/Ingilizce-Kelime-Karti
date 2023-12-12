@@ -33,7 +33,7 @@ const KullaniciInfo = ({ userName, basariSirasi }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.navyBlue,
+    backgroundColor: Colors.element1,
     width: "95%",
     height: Dimensions.get("window").height / 6,
     borderBottomLeftRadius: 30,

@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, Text, View, Dimensions } from "react-native";
 import FlipCard from "react-native-flip-card";
+import { Colors } from "../../../constants/colors";
 const { width, height } = Dimensions.get("window");
 const Kart = () => (
   <View style={styles.card}>
@@ -9,19 +10,19 @@ const Kart = () => (
       <View style={styles.face}>
         <Image
           resizeMode="cover"
-          source={require("../../../../assets/icon.png")}
+          source={require("../../../../assets/adaptive-icon.png")}
           style={styles.image}
         />
-        <Text style={styles.text}>Ön Yüz</Text>
+        <Text style={styles.text}>English sentence of the day</Text>
       </View>
       {/* Kartın arka yüzü */}
       <View style={styles.face}>
         <Image
           resizeMode="cover"
-          source={require("../../../../assets/fire.png")}
+          source={require("../../../../assets/adaptive-icon.png")}
           style={styles.image}
         />
-        <Text style={styles.text}>Arka Yüz</Text>
+        <Text style={styles.text}>Günün cümlesinin türkçes</Text>
       </View>
     </FlipCard>
   </View>
@@ -30,7 +31,7 @@ const Kart = () => (
 const styles = StyleSheet.create({
   card: {
     width: width / 1.1,
-    height: height / 6,
+    height: height / 9,
     borderRadius: 15,
     overflow: "hidden",
   },
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: Colors.element1,
   },
   image: {
     width: "100%",
@@ -46,8 +47,9 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   text: {
-    fontSize: 24,
+    fontSize: 16,
     fontWeight: "bold",
+    color: "#fff",
   },
 });
 
