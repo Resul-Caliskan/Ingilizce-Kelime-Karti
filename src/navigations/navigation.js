@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "../screens/Home/HomeScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "../constants/colors";
+import KelimeListesi from "../screens/KelimeListe/kelimeListe";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +18,8 @@ export default function BottomNavigation() {
             backgroundColor: Colors.element1,
           },
           headerShown: false,
-          tabBarActiveTintColor: Colors.white,
+          tabBarActiveTintColor: Colors.element2,
+          tabBarInactiveTintColor:Colors.white
         }}
       >
         <Tab.Screen
@@ -32,7 +34,7 @@ export default function BottomNavigation() {
         />
         <Tab.Screen
           name="Test"
-          component={HomeScreen}
+          component={KelimeListesi}
           options={{
             tabBarLabel: "Test",
             tabBarIcon: ({ color, size }) => (
@@ -48,7 +50,7 @@ export default function BottomNavigation() {
           name="Tablo"
           component={HomeScreen}
           options={{
-            tabBarLabel: "Tablo",
+            tabBarLabel: "Liderlik Tablosu",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="clipboard-list"

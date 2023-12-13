@@ -40,7 +40,7 @@ const Seriler = ({ seriesName }) => {
     ],
     datasets: [
       {
-        data: [20, 45, 28, 23, 30, 43, 15],
+        data: [20, 45, 28, 23, 30, 43, 40],
       },
     ],
   }; // Bu veriyi güncelleyin

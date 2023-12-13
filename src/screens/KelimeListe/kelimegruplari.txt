@@ -1,0 +1,25 @@
+İş Dünyası: İş terimleri, iş yerinde kullanılan ifadeler, iş görüşmeleri, iş e-postaları, işletme ve yönetim, pazarlama, finans, insan kaynakları vb.
+Gezi ve Seyahat: Ulaşım türleri, konaklama türleri, restoranlar ve menüler, hava durumu, turistik yerler, seyahat rezervasyonları, gezi planlama vb.
+Ev ve Eşyalar: Ev tipleri, odalar, mobilyalar, ev aletleri, temizlik malzemeleri, ev bakımı ve onarımı, bahçe bakımı vb.
+Gıda ve Yemek Pişirme: Yiyecekler, içecekler, yemek tarifleri, pişirme yöntemleri, restoran menüsü, diyet ve beslenme, gıda alışverişi vb.
+Sağlık ve Tıp: Vücut parçaları, hastalıklar, tıbbi tedaviler, hastane ve doktor ziyaretleri, ilaçlar, sağlık sigortası, acil durumlar vb.
+Eğitim: Okul türleri, dersler, sınavlar, ödevler, eğitim seviyeleri, üniversite başvuruları, burslar vb.
+Hobi ve Eğlence: Sporlar, müzik, film ve televizyon, sanat, kitaplar, oyunlar, el işleri, dış mekan aktiviteleri vb.
+Doğa ve Çevre: Bitkiler, hayvanlar, hava durumu, coğrafi özellikler, çevre koruma, doğal afetler vb.
+Teknoloji: Bilgisayarlar, mobil cihazlar, internet, sosyal medya, yazılım ve programlama, teknolojik trendler vb.
+Kişisel İlişkiler: Aile, arkadaşlar, flört ve ilişkiler, evlilik, çocuk yetiştirme, duygusal ifadeler vb.
+Alışveriş: Giysiler, elektronik eşyalar, yiyecek alışverişi, ikinci el alışveriş, online alışveriş vb.
+Dil Öğrenme: Dilbilgisi, kelime dağarcığı, okuma ve yazma becerileri, dinleme ve konuşma becerileri, dil sınavları vb.
+Günlük Yaşam: Hava durumu, trafik, alışveriş, yemek pişirme, temizlik, ev işleri vb.
+Spor: Futbol, basketbol, tenis, yüzme, fitness ve egzersiz, olimpiyat oyunları vb.
+Müzik: Müzik türleri, enstrümanlar, şarkı sözleri, konserler ve festivaller vb.
+Sanat ve Kültür: Resim, heykel, tiyatro, sinema, edebiyat, tarih vb.
+Bilim ve Teknoloji: Fizik, kimya, biyoloji, matematik, bilgisayar bilimi, uzay ve astronomi vb.
+Hukuk ve Politika: Hükümet, politik partiler, seçimler, yasalar ve düzenlemeler, uluslararası ilişkiler vb.
+Ekonomi ve Finans: Para birimleri, bankacılık, yatırımlar, vergiler, ekonomik göstergeler vb.
+Medya ve Haberler: Gazeteler, dergiler, televizyon programları, sosyal medya, güncel olaylar vb.
+Çevre ve Ekoloji: Doğal kaynaklar, iklim değişikliği, çevre koruma, sürdürülebilir yaşam vb.
+Psikoloji ve Felsefe: Kişilik tipleri, duygular ve hisler, etik ve ahlak, yaşamın anlamı vb.
+Din ve Spiritüalite: Dünya dinleri, dini ritüeller ve uygulamalar, meditasyon ve mindfulness vb.
+Moda ve Güzellik: Giysiler, aksesuarlar, makyaj, saç stilleri, moda trendleri vb.
+Yerel Kültür ve Gelenekler: Yerel yemekler, festivaller, tarih ve miras, dil ve lehçeler vb.
