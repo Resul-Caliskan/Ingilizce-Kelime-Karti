@@ -1,21 +1,40 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import * as Progress from "react-native-progress";
 
-const Card = ({ bgColor, imageSource, text, progress }) => {
+const Card = ({ id, bgColor, imageSource, text, progress, textColor }) => {
   return (
-    <View style={[styles.card, { backgroundColor: bgColor }]}>
+    <View
+      style={[
+        styles.card,
+        id % 2 == 1
+          ? {
+              borderStartWidth: 3,
+              borderBottomWidth: 3,
+              borderColor: textColor,
+            }
+          : { borderEndWidth: 3, borderBottomWidth: 3, borderColor: textColor },
+        { backgroundColor: bgColor },
+      ]}
+    >
       <Image source={imageSource} style={styles.image} />
-      <Text style={styles.text}>{text}</Text>
+      <Text style={[styles.text, { color: textColor }]}>{text}</Text>
       <View style={styles.bar}>
         <Progress.Bar
           progress={progress}
           width={100}
           borderWidth={2}
-          borderColor="black"
+          borderColor={textColor}
           color="limegreen"
+          height={8}
         />
-        <Text>%{parseInt(progress*100)}</Text>
+        <Text style={{ color: textColor }}>%{parseInt(progress * 100)}</Text>
       </View>
     </View>
   );
@@ -24,8 +43,8 @@ const Card = ({ bgColor, imageSource, text, progress }) => {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 20,
-    width: Dimensions.get("window").width/3,
-    height: Dimensions.get("window").height/5,
+    width: Dimensions.get("window").width / 3,
+    height: Dimensions.get("window").height / 5,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -38,8 +57,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 5,
     fontSize: 16,
+    padding: 2,
     fontWeight: "bold",
-    textAlign:"center"
+    textAlign: "center",
   },
   bar: {
     position: "absolute",

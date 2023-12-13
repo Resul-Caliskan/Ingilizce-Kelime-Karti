@@ -13,12 +13,7 @@ export default function HomeScreen() {
         <KullaniciInfo userName={"Resul"} basariSirasi={7} />
         <Seriler seriesName={"7"} />
         <Kart />
-        <Card
-          text={"Merhaba"}
-          bgColor={Colors.element2}
-          imageSource={require("../../../assets/fire.png")}
-          progress={0.4}
-        />
+        
       </View>
     </View>
   );

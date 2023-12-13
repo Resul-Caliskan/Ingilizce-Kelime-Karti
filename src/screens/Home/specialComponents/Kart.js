@@ -10,7 +10,7 @@ const Kart = () => (
       <View style={styles.face}>
         <Image
           resizeMode="cover"
-          source={require("../../../../assets/adaptive-icon.png")}
+          source={require("../../../../assets/fire.png")}
           style={styles.image}
         />
         <Text style={styles.text}>English sentence of the day</Text>
@@ -19,10 +19,10 @@ const Kart = () => (
       <View style={styles.face}>
         <Image
           resizeMode="cover"
-          source={require("../../../../assets/adaptive-icon.png")}
+          source={require("../../../../assets/fire.png")}
           style={styles.image}
         />
-        <Text style={styles.text}>Günün cümlesinin türkçes</Text>
+        <Text style={styles.text}>Günün cümlesinin türkçesi</Text>
       </View>
     </FlipCard>
   </View>
@@ -34,12 +34,15 @@ const styles = StyleSheet.create({
     height: height / 9,
     borderRadius: 15,
     overflow: "hidden",
+    borderEndWidth:1,
+    borderBottomWidth:2,
+    borderColor:"white"
   },
   face: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Colors.element1,
+    backgroundColor: Colors.element2,
   },
   image: {
     width: "100%",
@@ -49,7 +52,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#fff",
+    color: "black",
+
   },
 });
 
