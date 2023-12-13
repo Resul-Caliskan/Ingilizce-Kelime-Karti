@@ -1,12 +1,26 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "../screens/Home/HomeScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "../constants/colors";
-import KelimeListesi from "../screens/KelimeListe/kelimeListe";
+import KelimeListesi from "../screens/KelimeListe/kelimeListesi";
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+function HomeStack() {
+  return (
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{ headerShown: false,animation:"slide_from_bottom" }}
+    >
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="KelimeListe" component={KelimeListesi} />
+    </Stack.Navigator>
+  );
+}
 
 export default function BottomNavigation() {
   return (
@@ -19,12 +33,12 @@ export default function BottomNavigation() {
           },
           headerShown: false,
           tabBarActiveTintColor: Colors.element2,
-          tabBarInactiveTintColor:Colors.white
+          tabBarInactiveTintColor: Colors.white,
         }}
       >
         <Tab.Screen
           name="Anasayfa"
-          component={HomeScreen}
+          component={HomeStack}
           options={{
             tabBarLabel: "Anasayfa",
             tabBarIcon: ({ color, size }) => (

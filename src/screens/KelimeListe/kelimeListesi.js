@@ -192,7 +192,7 @@ const data = [
   // Diğer kartlar...
 ];
 
-export default function KelimeListesi() {
+export default function KelimeListesi({ navigation }) {
   const [progresses, setProgresses] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
   const [modalInfo, setModalInfo] = useState(["Baslik", 0.5, "Api"]);
@@ -204,7 +204,9 @@ export default function KelimeListesi() {
       }));
     });
   }, []);
-
+  onPressHandler = () => {
+    navigation.goBack();
+  };
   return (
     <View style={styles.container}>
       <ModalComponent
@@ -215,7 +217,12 @@ export default function KelimeListesi() {
       />
       <View style={styles.innerContaier}>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.headerIcon}>
+          <TouchableOpacity
+            style={styles.headerIcon}
+            onPress={() => {
+              onPressHandler();
+            }}
+          >
             <MaterialCommunityIcons
               name="arrow-left"
               color={"white"}
@@ -234,7 +241,7 @@ export default function KelimeListesi() {
               <TouchableOpacity
                 onPress={() => {
                   setModalVisible(!modalVisible);
-                  setModalInfo([item.text,progresses[item.id],"api"]);
+                  setModalInfo([item.text, progresses[item.id], "api"]);
                 }}
               >
                 <Card

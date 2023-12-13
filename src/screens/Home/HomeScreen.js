@@ -7,14 +7,17 @@ import Kart from "./specialComponents/Kart";
 import Card from "../KelimeListe/specialComponents/listeKarti";
 import AnimatedButton from "./specialComponents/kelimeGrupButon";
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
+  onPressHandler =()=>{
+    navigation.navigate('KelimeListe');
+  }
   return (
     <View style={styles.back}>
       <View style={styles.container}>
         <KullaniciInfo userName={"Resul"} basariSirasi={7} />
         <Seriler seriesName={"7"} />
         <Kart />
-        <AnimatedButton/>
+        <AnimatedButton onPress={onPressHandler}/>
       </View>
     </View>
   );

@@ -47,7 +47,15 @@ const ModalComponent = ({
         />
 
         <Text style={styles.modalText}>
-          % {parseInt(progress * 100)} Tamamlandı {"\n"}Tebrikler 👋
+          % {parseInt(progress * 100)} Tamamlandı {"\n"}{" "}
+          {parseInt(progress * 100) > 60
+            ? "🔥🔥🔥  Aman Aman   🔥🔥🔥"
+            :
+            parseInt(progress * 100) > 30
+            ? "🔥🔥 Alev Alev  🔥🔥"
+            : parseInt(progress * 100) > 10
+            ? "🎊  Helal Olsun  🎊"
+            : ""}
         </Text>
         <Text style={[styles.modalText, { marginBottom: 2 }]}>
           Getirilecek Kelime Kartı {"\n"}Sayısı:{" "}
@@ -148,7 +156,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.element2,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius:6,
+    borderRadius: 6,
     margin: 18,
   },
   openButton: {
