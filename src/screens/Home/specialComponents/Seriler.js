@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").height / 3.2,
     borderRadius: 30,
     padding: 10,
-    margin: 5,
+    margin: 15,
     alignItems:"flex-start"
   },
   header: {
