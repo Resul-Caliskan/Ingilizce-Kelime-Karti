@@ -20,13 +20,13 @@ const AnimatedButton = ({ onPress }) => {
           // Yeni eklenen satır
           Animated.timing(colorAnimation, {
             toValue: 1,
-            duration: 800,
+            duration: 1000,
             useNativeDriver: false,
           }),
           Animated.timing(fontSizeAnimation, {
             // Yeni eklenen satır
             toValue: 1,
-            duration: 800,
+            duration: 1000,
             useNativeDriver: false,
           }),
         ]),
@@ -34,13 +34,13 @@ const AnimatedButton = ({ onPress }) => {
           // Yeni eklenen satır
           Animated.timing(colorAnimation, {
             toValue: 0,
-            duration: 800,
+            duration: 1000,
             useNativeDriver: false,
           }),
           Animated.timing(fontSizeAnimation, {
             // Yeni eklenen satır
             toValue: 0,
-            duration: 800,
+            duration: 1000,
             useNativeDriver: false,
           }),
         ]),
@@ -52,12 +52,12 @@ const AnimatedButton = ({ onPress }) => {
     borderRadius: 12,
     width: width / 1.4,
     height: height / 10,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
     margin: 30,
     backgroundColor: colorAnimation.interpolate({
       inputRange: [0, 1],
-      outputRange: [Colors.element1, Colors.element2],
+      outputRange: [Colors.element1,Colors.honeydew],
     }),
   };
 
@@ -66,7 +66,7 @@ const AnimatedButton = ({ onPress }) => {
     fontSize: fontSizeAnimation.interpolate({
       // Değiştirilen satır
       inputRange: [0, 1],
-      outputRange: [14, 22],
+      outputRange: [14, 20],
     }),
     fontWeight: "bold",
     color: "white",
@@ -93,11 +93,10 @@ export default AnimatedButton;
 const styles = StyleSheet.create({
   container: {
     width: width / 1.44,
-    height: height / 10.5,
-    borderRadius: 10,
+    height: height / 11,
+    borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Colors.element3,
-    borderWidth: 1,
+    backgroundColor: Colors.element1,
   },
 });

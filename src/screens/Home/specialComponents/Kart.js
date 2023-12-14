@@ -18,7 +18,7 @@ const Kart = () => {
       Animated.sequence([
         Animated.timing(colorAnimation, {
           toValue: 1,
-          duration: 2000,
+          duration: 1500,
           useNativeDriver: false,
         }),
         Animated.timing(colorAnimation, {
@@ -34,8 +34,8 @@ const Kart = () => {
     borderRadius: 20,
     margin: 5,
     backgroundColor: colorAnimation.interpolate({
-      inputRange: [0, 2],
-      outputRange: [Colors.element1, Colors.element3],
+      inputRange: [0, 1],
+      outputRange: [Colors.mediumseagreen, Colors.mediumspringgreen],
     }),
   };
   return (
@@ -69,11 +69,9 @@ const Kart = () => {
 const styles = StyleSheet.create({
   card: {
     width: width / 1.1,
-    height: height / 9,
+    height: height / 7,
     borderRadius: 15,
     overflow: "hidden",
-    borderBottomWidth: 1,
-    borderBottomColor: "white",
   },
   face: {
     flex: 1,

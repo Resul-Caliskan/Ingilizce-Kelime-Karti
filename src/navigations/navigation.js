@@ -6,6 +6,8 @@ import HomeScreen from "../screens/Home/HomeScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "../constants/colors";
 import KelimeListesi from "../screens/KelimeListe/kelimeListesi";
+import KelimeKarti from "../screens/KelimeKarti/kelimeKarti";
+import KelimeKartiListe from "../screens/KelimeKarti/kelimeKartiListe";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -18,6 +20,8 @@ function HomeStack() {
     >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="KelimeListe" component={KelimeListesi} />
+      {/* aşağıya KelimeKartiListesi componenti yazılacak */}
+      <Stack.Screen name="KelimeKarti" component={KelimeKarti} />
     </Stack.Navigator>
   );
 }
@@ -33,7 +37,7 @@ export default function BottomNavigation() {
           },
           headerShown: false,
           tabBarActiveTintColor: Colors.element2,
-          tabBarInactiveTintColor: Colors.white,
+          tabBarInactiveTintColor: Colors.honeydew,
         }}
       >
         <Tab.Screen
@@ -62,7 +66,7 @@ export default function BottomNavigation() {
         />
         <Tab.Screen
           name="Tablo"
-          component={HomeScreen}
+          component={KelimeKartiListe}
           options={{
             tabBarLabel: "Liderlik Tablosu",
             tabBarIcon: ({ color, size }) => (

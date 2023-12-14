@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     padding: 10,
     margin: 15,
-    alignItems:"flex-start"
+    alignItems:"center"
   },
   header: {
     flexDirection: "row",

@@ -1,0 +1,137 @@
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
+import FlipCard from "react-native-flip-card";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Colors } from "../../constants/colors";
+import * as Speech from "expo-speech";
+const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
+  const handleAddToList = () => {
+    // Listeye ekleme işlevi burada olacak
+  };
+  const handlePlaySound = () => {
+    // Ses oynatma işlevi burada olacak
+    Speech.speak(ingilizceKelime, { language: "en" });
+  };
+
+  return (
+    <View style={styles.container}>
+      <FlipCard
+        style={styles.card}
+        friction={5}
+        perspective={1000}
+        flipHorizontal={true}
+        flipVertical={false}
+      >
+        {/* Ön yüz */}
+        <View style={styles.frontFace}>
+          <View style={styles.textView}>
+            <Text style={[styles.text, { margin: 15 }]}>
+              {ingilizceKelime}Hello
+            </Text>
+            <Text style={[styles.text, { borderTopWidth: 1 }]}>{okunusu}</Text>
+
+            <TouchableOpacity style={styles.voice} onPress={handlePlaySound}>
+              <MaterialCommunityIcons
+                name="account-voice"
+                color={Colors.black}
+                size={30}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity onPress={handleAddToList}>
+            <View style={styles.add}>
+              <Text style={styles.text2}>Listeme Ekle</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        {/* Arka yüz */}
+        <View style={styles.backFace}>
+          <View style={styles.textView}>
+            <Text style={[styles.text, { margin: 15 }]}>
+              {turkceAnlam}Hello
+            </Text>
+          </View>
+          <TouchableOpacity onPress={handleAddToList}>
+            <View style={styles.add}>
+              <Text style={styles.text2}>Listeme Ekle</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </FlipCard>
+    </View>
+  );
+};
+
+export default KelimeKarti;
+const { width, height } = Dimensions.get("window");
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 20,
+  },
+  card: {
+    borderRadius: 16,
+    overflow: "hidden",
+  },
+  frontFace: {
+    borderWidth: 2,
+    borderRadius: 16,
+    borderColor: "honeydew",
+    width: width * 0.55,
+    height: height * 0.45,
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "teal",
+  },
+  backFace: {
+    borderWidth: 2,
+    borderRadius: 16,
+    borderColor: "honeydew",
+    width: width * 0.55,
+    height: height * 0.45,
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    backgroundColor: "teal",
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: "500",
+    paddingBottom: 2,
+  },
+  textView: {
+    marginTop: 10,
+    borderEndWidth: 1,
+    borderBottomWidth: 2,
+    borderRadius: 10,
+    width: "85%",
+    height: "75%",
+    backgroundColor: "honeydew",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  voice: {
+    position: "absolute",
+    bottom: 10,
+    right: 10,
+    padding: 5,
+    borderBottomWidth: 1,
+  },
+  add: {
+    borderRadius: 10,
+    margin: 15,
+    backgroundColor: Colors.element2,
+    padding: 8,
+  },
+  text2: { fontSize: 16, fontWeight: "500" },
+});
