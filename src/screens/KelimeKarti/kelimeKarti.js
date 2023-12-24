@@ -55,7 +55,7 @@ const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
         <View style={styles.backFace}>
           <View style={styles.textView}>
             <Text style={[styles.text, { margin: 15 }]}>
-              {turkceAnlam}Hello
+              {turkceAnlam}
             </Text>
           </View>
           <TouchableOpacity onPress={handleAddToList}>

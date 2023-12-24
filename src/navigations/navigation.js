@@ -8,6 +8,7 @@ import { Colors } from "../constants/colors";
 import KelimeListesi from "../screens/KelimeListe/kelimeListesi";
 import KelimeKarti from "../screens/KelimeKarti/kelimeKarti";
 import KelimeKartiListe from "../screens/KelimeKarti/kelimeKartiListe";
+import TestListe from "../screens/Test/TestListe/testListe";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -16,7 +17,7 @@ function HomeStack() {
   return (
     <Stack.Navigator
       initialRouteName="Home"
-      screenOptions={{ headerShown: false,animation:"slide_from_bottom" }}
+      screenOptions={{ headerShown: false, animation: "slide_from_bottom" }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="KelimeListe" component={KelimeListesi} />
@@ -52,7 +53,7 @@ export default function BottomNavigation() {
         />
         <Tab.Screen
           name="Test"
-          component={KelimeListesi}
+          component={TestListe}
           options={{
             tabBarLabel: "Test",
             tabBarIcon: ({ color, size }) => (
