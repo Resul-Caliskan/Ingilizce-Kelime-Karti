@@ -1,9 +1,15 @@
 import React from "react";
-import { ScrollView, View, Text, StyleSheet, StatusBar,TouchableOpacity } from "react-native";
+import {
+  ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
 import KelimeKarti from "./kelimeKarti";
 import { Colors } from "../../constants/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
 
 const kelimeler = [
   {
@@ -42,17 +48,17 @@ const KelimeKartiListe = () => {
           </TouchableOpacity>
           <Text style={styles.headerText}>Kelime Kartları</Text>
         </View>
-      
-      <ScrollView style={styles.scrollView}>
-        {kelimeler.map((kelime, index) => (
-          <KelimeKarti
-            key={index}
-            ingilizceKelime={kelime.ingilizceKelime}
-            okunusu={kelime.okunusu}
-            turkceAnlam={kelime.turkceAnlam}
-          />
-        ))}
-      </ScrollView>
+
+        <ScrollView style={styles.scrollView}>
+          {kelimeler.map((kelime, index) => (
+            <KelimeKarti
+              key={index}
+              ingilizceKelime={kelime.ingilizceKelime}
+              okunusu={kelime.okunusu}
+              turkceAnlam={kelime.turkceAnlam}
+            />
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
@@ -60,13 +66,13 @@ const KelimeKartiListe = () => {
 
 export default KelimeKartiListe;
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.element1,
-        justifyContent: "center",
-        alignItems: "center",
-      },
-      scrollView:{flex:1},
+  container: {
+    flex: 1,
+    backgroundColor: Colors.element1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  scrollView: { flex: 1, width: "90%" },
   innerContaier: {
     flex: 1,
     borderBottomEndRadius: 30,

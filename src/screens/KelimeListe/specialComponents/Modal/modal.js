@@ -8,6 +8,7 @@ const ModalComponent = ({
   progress,
   baslik,
   api,
+  navgation,
 }) => {
   const [count, setCount] = useState(0);
 
@@ -103,7 +104,10 @@ const ModalComponent = ({
           ]}
           disabled={count == 0 ? true : false}
           onPress={() => {
+
             setModalVisible(!modalVisible);
+            //Bu kısımda Gideceği sayfayla ilgili props ları vereceğiz
+            navgation.navigate("KelimeKartiListe");
           }}
         >
           <Text style={styles.textStyle}>Kartları Getir</Text>

@@ -6,9 +6,8 @@ import HomeScreen from "../screens/Home/HomeScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "../constants/colors";
 import KelimeListesi from "../screens/KelimeListe/kelimeListesi";
-import KelimeKarti from "../screens/KelimeKarti/kelimeKarti";
 import KelimeKartiListe from "../screens/KelimeKarti/kelimeKartiListe";
-import TestListe from "../screens/Test/TestListe/testListe";
+import TestListe from "../screens/Test/TestListe/TestListe";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -22,7 +21,7 @@ function HomeStack() {
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="KelimeListe" component={KelimeListesi} />
       {/* aşağıya KelimeKartiListesi componenti yazılacak */}
-      <Stack.Screen name="KelimeKarti" component={KelimeKarti} />
+      <Stack.Screen name="KelimeKartiListe" component={KelimeKartiListe} />
     </Stack.Navigator>
   );
 }

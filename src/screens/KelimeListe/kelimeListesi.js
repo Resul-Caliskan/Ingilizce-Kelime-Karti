@@ -195,7 +195,7 @@ const data = [
 export default function KelimeListesi({ navigation }) {
   const [progresses, setProgresses] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
-  const [modalInfo, setModalInfo] = useState(["Baslik", 0.5, "Api"]);
+  const [modalInfo, setModalInfo] = useState(["Baslik", 0.5, "Api" ,navigation]);
   useEffect(() => {
     data.forEach((item) => {
       setProgresses((prev) => ({
@@ -204,23 +204,26 @@ export default function KelimeListesi({ navigation }) {
       }));
     });
   }, []);
-  onPressHandler = () => {
+  onPressHandlerBack = () => {
     navigation.goBack();
   };
+
   return (
     <View style={styles.container}>
+     {/** MODAL BURADA */}
       <ModalComponent
         baslik={modalInfo[0]}
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         progress={modalInfo[1]}
+        navgation={navigation}
       />
       <View style={styles.innerContaier}>
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.headerIcon}
             onPress={() => {
-              onPressHandler();
+              onPressHandlerBack();
             }}
           >
             <MaterialCommunityIcons

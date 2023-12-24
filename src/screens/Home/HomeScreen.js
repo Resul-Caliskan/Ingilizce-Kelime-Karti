@@ -4,7 +4,6 @@ import KullaniciInfo from "./specialComponents/KullaniciInfo";
 import Seriler from "./specialComponents/Seriler";
 import { Colors } from "../../constants/colors";
 import Kart from "./specialComponents/Kart";
-import Card from "../KelimeListe/specialComponents/listeKarti";
 import AnimatedButton from "./specialComponents/kelimeGrupButon";
 
 export default function HomeScreen({navigation}) {
