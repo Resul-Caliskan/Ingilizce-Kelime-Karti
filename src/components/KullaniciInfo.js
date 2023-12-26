@@ -9,15 +9,30 @@ import {
 } from "react-native";
 import { Colors } from "../constants/colors";
 
-const KullaniciInfo = ({ userName, basariSirasi,hosgeldin, mesaj, }) => {
+const KullaniciInfo = ({
+  userName,
+  basariSirasi,
+  hosgeldin,
+  mesaj,
+  backgroundColor,
+}) => {
   return (
-    <View style={styles.container}>
+    <View
+      style={
+        backgroundColor == null
+          ? styles.container
+          : [styles.container, { backgroundColor: backgroundColor }]
+      }
+    >
       <Image
         style={styles.avatar}
         source={require("../../assets/favicon.png")}
       />
       <View style={styles.textView}>
-        <Text style={styles.welcomeText}>{hosgeldin}{userName},</Text>
+        <Text style={styles.welcomeText}>
+          {hosgeldin}
+          {userName},
+        </Text>
         <Text style={styles.continueText}>{mesaj}</Text>
         <View style={styles.header}>
           <Text style={styles.continueText}>{basariSirasi}</Text>

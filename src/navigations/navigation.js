@@ -8,6 +8,8 @@ import { Colors } from "../constants/colors";
 import KelimeListesi from "../screens/KelimeListe/kelimeListesi";
 import KelimeKartiListe from "../screens/KelimeKarti/kelimeKartiListe";
 import TestListe from "../screens/Test/TestListe/TestListe";
+import EslestirmeTest from "../screens/Test/Testler/EslestirmeTest";
+
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -22,6 +24,7 @@ function HomeStack() {
       <Stack.Screen name="KelimeListe" component={KelimeListesi} />
       {/* aşağıya KelimeKartiListesi componenti yazılacak */}
       <Stack.Screen name="KelimeKartiListe" component={KelimeKartiListe} />
+      <Stack.Screen name="EslestirmeTest" component={EslestirmeTest} />
     </Stack.Navigator>
   );
 }

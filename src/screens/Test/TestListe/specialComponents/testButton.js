@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 
-const TestImageButton = ({ images, text, backgroundColor }) => {
+const TestImageButton = ({ images, text, backgroundColor,onPress }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -13,23 +13,32 @@ const TestImageButton = ({ images, text, backgroundColor }) => {
   }, [images]);
 
   return (
-    <TouchableOpacity style={[styles.button, { backgroundColor }]}>
+    <TouchableOpacity
+      style={[
+        styles.button,
+        {
+          backgroundColor,
+          borderColor: currentImageIndex % 2 == 0 ? "white" : "limegreen",
+        },
+      ]}
+      onPress={()=> onPress()}
+    >
       <Image source={images[currentImageIndex]} style={styles.image} />
-      <Text style={styles.text}>{text+ " "+ currentImageIndex }</Text>
+      <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
-    width:"70%",
-    flexDirection: 'row',
-    alignItems: 'center',
+    width: "70%",
+    flexDirection: "row",
+    alignItems: "center",
     borderRadius: 10,
-    borderStartWidth:1,
-    borderBottomWidth:1,
+    borderEndWidth: 1,
+    borderBottomWidth: 1.5,
     margin: 10,
-    padding:10
+    padding: 10,
   },
   image: {
     width: 50,
@@ -37,10 +46,10 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 18,
-    fontWeight:"600",
+    fontWeight: "600",
     marginLeft: 10,
-    color:"white",
-    flexWrap:"wrap"
+    color: "white",
+    flexWrap: "wrap",
   },
 });
 

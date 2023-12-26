@@ -29,7 +29,7 @@ const kelimeler = [
   },
 ];
 
-const KelimeKartiListe = () => {
+const KelimeKartiListe = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContaier}>
@@ -37,7 +37,7 @@ const KelimeKartiListe = () => {
           <TouchableOpacity
             style={styles.headerIcon}
             onPress={() => {
-              onPressHandler();
+              navigation.pop();
             }}
           >
             <MaterialCommunityIcons
