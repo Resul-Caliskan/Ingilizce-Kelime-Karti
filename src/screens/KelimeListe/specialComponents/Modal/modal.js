@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     right: 5,
     top: 10,
-    paddingBottom: 10,
+    padding: 10,
   },
 });
 

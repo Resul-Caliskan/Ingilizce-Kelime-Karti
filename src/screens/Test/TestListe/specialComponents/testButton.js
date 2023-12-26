@@ -18,7 +18,7 @@ const TestImageButton = ({ images, text, backgroundColor,onPress }) => {
         styles.button,
         {
           backgroundColor,
-          borderColor: currentImageIndex % 2 == 0 ? "white" : "limegreen",
+          borderColor: "white",
         },
       ]}
       onPress={()=> onPress()}
@@ -31,14 +31,14 @@ const TestImageButton = ({ images, text, backgroundColor,onPress }) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: "70%",
+    width: "80%",
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 10,
     borderEndWidth: 1,
     borderBottomWidth: 1.5,
     margin: 10,
-    padding: 10,
+    padding: 12,
   },
   image: {
     width: 50,

@@ -12,7 +12,7 @@ import { Colors } from "../../../constants/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 const Card = ({ id, dil, kelime, renk, rotate, onPress, pressable }) => (
   <TouchableOpacity
-    style={{ flex: 1 }}
+    style={{ flex: 1, margin: 10 }}
     onPress={() => onPress(id, dil)}
     disabled={pressable}
   >
@@ -24,22 +24,36 @@ const Card = ({ id, dil, kelime, renk, rotate, onPress, pressable }) => (
           transform: [
             {
               rotate: rotate.interpolate({
-                inputRange: [0, 1, 2, 3, 4],
-                outputRange: ["0deg", "10deg", "-10deg", "5deg", "-5deg"],
+                inputRange: [0, 1, 2, 3, 4, 5],
+                outputRange: [
+                  "0deg",
+                  "10deg",
+                  "-10deg",
+                  "5deg",
+                  "-5deg",
+                  "0deg",
+                ],
               }),
             },
           ],
         },
       ]}
     >
-      <Text style={{ fontSize: 16,fontWeight:"600", color: "white", flexWrap: "wrap" }}>
+      <Text
+        style={{
+          fontSize: 16,
+          fontWeight: "600",
+          color: "white",
+          flexWrap: "wrap",
+        }}
+      >
         {kelime}
       </Text>
     </Animated.View>
   </TouchableOpacity>
 );
 
-const EslestirmeTest = ({navigation}) => {
+const EslestirmeTest = ({ navigation }) => {
   const sozluk = [
     { ingilizce: "Hellofafdfjklasjfasdfjlj", turkce: "merhaba" },
     { ingilizce: "what", turkce: "Ne" },
@@ -54,7 +68,8 @@ const EslestirmeTest = ({navigation}) => {
 
   const [ilkTiklama, setIlkTiklama] = useState(null);
   const [ikinciTiklama, setIkinciTiklama] = useState(null);
-
+  const [puan, setPuan] = useState(0);
+  const [seri, setSeri] = useState(0);
   const [kartlar, setKartlar] = useState(
     sozluk
       .map((item, id) => [
@@ -77,7 +92,7 @@ const EslestirmeTest = ({navigation}) => {
       ])
       .flat()
   );
-
+  const kelimeSayisi =kartlar.length/2 ;
   const tiklama = (id, dil) => {
     if (ilkTiklama === null) {
       setIlkTiklama(id);
@@ -93,11 +108,15 @@ const EslestirmeTest = ({navigation}) => {
       if (ilkTiklama === id) {
         setKartlar(
           kartlar.map((kart) =>
-            kart.id === id ? { ...kart, renk: "limegreen", pressable: true } : kart
+            kart.id === id
+              ? { ...kart, renk: "limegreen", pressable: true }
+              : kart
           )
         );
         setIlkTiklama(null);
         setIkinciTiklama(null);
+        setPuan(puan + 1);
+        setSeri(seri + 1);
       } else {
         setKartlar(
           kartlar.map((kart) =>
@@ -109,7 +128,7 @@ const EslestirmeTest = ({navigation}) => {
         Animated.timing(
           kartlar.find((kart) => (kart.id === id) & (kart.dil === dil)).rotate,
           {
-            toValue: 4,
+            toValue: 5,
             duration: 300,
             useNativeDriver: true,
           }
@@ -123,6 +142,7 @@ const EslestirmeTest = ({navigation}) => {
           );
           setIlkTiklama(null);
           setIkinciTiklama(null);
+          setSeri(0);
         });
       }
     }
@@ -130,32 +150,41 @@ const EslestirmeTest = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.headerIcon}
-            onPress={() => {
-              navigation.pop();
-            }}
-          >
-            <MaterialCommunityIcons
-              name="arrow-left"
-              color={"white"}
-              size={35}
-            />
-          </TouchableOpacity>
-          <Text style={styles.headerText}>Eşleştirme Testi</Text>
-        </View>
-        <FlatList
-          style={styles.flatlist}
-          data={kartlar}
-          keyExtractor={(item) => `${item.id}${item.dil}`}
-          renderItem={({ item }) => (
-            <View style={{ justifyContent: "center", alignItems: "center" }}>
-              <Card {...item} onPress={tiklama} />
-            </View>
-          )}
-          numColumns={3}
-        />
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.headerIcon}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
+          <MaterialCommunityIcons name="arrow-left" color={"white"} size={35} />
+        </TouchableOpacity>
+        <Text style={styles.headerText}>Eşleştrime Testi</Text>
+      </View>
+      <View style={styles.durum}>
+        <Text style={styles.durumtext}>Puan:{" "+puan+ " 🌟"}</Text>
+        <Text style={styles.durumtext}>
+          Serim:{seri}
+          {(seri >= 2) & (seri < 5)
+            ? " 🎖️"
+            : (seri >= 5) & (seri <= 7)
+            ? " 🏆"
+            : seri == kelimeSayisi ? " 💯": ""}
+        </Text>
+        {/* <Text style={styles.durumtext}>      </Text> */}
+      </View>
+      <FlatList
+        style={styles.flatlist}
+        // contentContainerStyle= {{justifyContent:"center"}}
+        data={kartlar}
+        keyExtractor={(item) => `${item.id}${item.dil}`}
+        renderItem={({ item }) => (
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <Card {...item} onPress={tiklama} />
+          </View>
+        )}
+        numColumns={3}
+      />
     </View>
   );
 };
@@ -167,31 +196,32 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    alignContent: "center",
+    backgroundColor: Colors.black,
   },
 
   card: {
     justifyContent: "center",
     alignItems: "center",
-    margin: 10,
-    marginTop:10,
-    width: 90,
-    height: 90,
+
+    width: 95,
+    height: 95,
     borderRadius: 5,
   },
   flatlist: {
     flex: 1,
     width: "100%",
+    paddingLeft: 10,
     backgroundColor: "black",
     flexWrap: "wrap",
-    alignContent:"center",
-    
+    alignContent: "center",
   },
   header: {
-    marginTop: StatusBar.currentHeight - 5,
+    marginTop: StatusBar.currentHeight,
     borderRadius: 10,
-    borderStartWidth: 2,
-    borderBottomWidth: 3,
-    borderColor: "white",
+    // borderStartWidth: 2,
+    // borderBottomWidth: 3,
+    // borderColor: "white",
     paddingBottom: 40,
     width: "95%",
     justifyContent: "center",
@@ -206,10 +236,20 @@ const styles = StyleSheet.create({
     height: 40,
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
     color: "white",
     position: "absolute",
     paddingBottom: 10,
+  },
+  durum: {
+    width: "100%",
+    justifyContent: "space-around",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  durumtext: {
+    fontSize: 14,
+    color: "white",
   },
 });

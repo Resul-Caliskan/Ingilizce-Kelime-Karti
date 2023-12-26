@@ -37,7 +37,7 @@ const KelimeKartiListe = ({navigation}) => {
           <TouchableOpacity
             style={styles.headerIcon}
             onPress={() => {
-              navigation.pop();
+              navigation.goBack();
             }}
           >
             <MaterialCommunityIcons
