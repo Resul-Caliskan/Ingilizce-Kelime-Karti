@@ -43,6 +43,12 @@ const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
                 size={30}
               />
             </TouchableOpacity>
+            <MaterialCommunityIcons
+             style={styles.turnCard}
+                name="cursor-default-click-outline"
+                color={Colors.black}
+                size={25}
+              />
           </View>
 
           <TouchableOpacity onPress={handleAddToList}>
@@ -57,6 +63,12 @@ const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
             <Text style={[styles.text, { margin: 15 }]}>
               {turkceAnlam}
             </Text>
+            <MaterialCommunityIcons
+             style={styles.turnCard}
+                name="cursor-default-click-outline"
+                color={Colors.black}
+                size={25}
+              />
           </View>
           <TouchableOpacity onPress={handleAddToList}>
             <View style={styles.add}>
@@ -126,6 +138,11 @@ const styles = StyleSheet.create({
     right: 10,
     padding: 5,
     borderBottomWidth: 1,
+  },
+  turnCard:{
+    position:"absolute",
+    left:10,
+    bottom:10,
   },
   add: {
     borderRadius: 10,

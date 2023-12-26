@@ -7,23 +7,23 @@ import {
   Dimensions,
   StatusBar,
 } from "react-native";
-import { Colors } from "../../../constants/colors";
+import { Colors } from "../constants/colors";
 
-const KullaniciInfo = ({ userName, basariSirasi }) => {
+const KullaniciInfo = ({ userName, basariSirasi,hosgeldin, mesaj, }) => {
   return (
     <View style={styles.container}>
       <Image
         style={styles.avatar}
-        source={require("../../../../assets/favicon.png")}
+        source={require("../../assets/favicon.png")}
       />
       <View style={styles.textView}>
-        <Text style={styles.welcomeText}>Hoş geldin {userName},</Text>
-        <Text style={styles.continueText}>Hadi öğrenmeye devam edelim</Text>
+        <Text style={styles.welcomeText}>{hosgeldin}{userName},</Text>
+        <Text style={styles.continueText}>{mesaj}</Text>
         <View style={styles.header}>
-          <Text style={styles.continueText}>Sıralaman: {basariSirasi}</Text>
+          <Text style={styles.continueText}>{basariSirasi}</Text>
           <Image
             style={styles.avatar2}
-            source={require("../../../../assets/adaptive-icon.png")}
+            source={require("../../assets/adaptive-icon.png")}
           />
         </View>
       </View>

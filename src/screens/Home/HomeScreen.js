@@ -1,6 +1,6 @@
 import { View, StyleSheet } from "react-native";
 import React from "react";
-import KullaniciInfo from "./specialComponents/KullaniciInfo";
+import KullaniciInfo from "../../components/KullaniciInfo";
 import Seriler from "./specialComponents/Seriler";
 import { Colors } from "../../constants/colors";
 import Kart from "./specialComponents/Kart";
@@ -13,7 +13,7 @@ export default function HomeScreen({navigation}) {
   return (
     <View style={styles.back}>
       <View style={styles.container}>
-        <KullaniciInfo userName={"Resul"} basariSirasi={7} />
+        <KullaniciInfo userName={"Resul"} basariSirasi={"Sıralaman: 7"} hosgeldin={"Hoş Geldin "} mesaj={"Hadi Öğrenmeye Başlayalım"} />
         <Seriler seriesName={"7"} />
         <Kart />
         <AnimatedButton onPress={onPressHandler}/>
