@@ -115,6 +115,7 @@ import TestListe from "../screens/Test/TestListe/TestListe";
 import EslestirmeTest from "../screens/Test/Testler/eslestirmeTest";
 import KelimeKartlari from "../screens/KelimeKarti/KelimeKartlari";
 import DinlemeTest from "../screens/Test/Testler/dinlemeTest";
+import YazmaTest from "../screens/Test/Testler/yazmaTesti";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -201,6 +202,7 @@ export default function BottomNavigation() {
           <Stack.Screen name="Testler" component={TestListe} />
           <Stack.Screen name="Eslestirme" component={EslestirmeTest} />
           <Stack.Screen name="Dinleme" component={DinlemeTest} />
+          <Stack.Screen name="Yazma" component={YazmaTest} />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>

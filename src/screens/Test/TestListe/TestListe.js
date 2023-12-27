@@ -64,6 +64,7 @@ export default function TestListe({ navigation }) {
             ]}
             text={"Kelime Yazma Testi"}
             backgroundColor={butonColor}
+            onPress={()=> onPressHandler("Yazma")}
           />
           <TestImageButton
             images={[

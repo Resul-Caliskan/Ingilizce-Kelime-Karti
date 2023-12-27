@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Colors } from "../../../constants/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import shuffleArray from "../../../backEnd/functions/shuffleArray";
 const Card = ({ id, dil, kelime, renk, rotate, onPress, pressable }) => (
   <TouchableOpacity
     style={{ flex: 1, margin: 10 }}
@@ -52,15 +53,6 @@ const Card = ({ id, dil, kelime, renk, rotate, onPress, pressable }) => (
     </Animated.View>
   </TouchableOpacity>
 );
-
-const shuffleArray = (array) => {
-  const shuffledArray = [...array];
-  for (let i = shuffledArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-  }
-  return shuffledArray;
-};
 const EslestirmeTest = ({ navigation }) => {
   const sozluk = [
     { ingilizce: "Hello", turkce: "Merhaba" },
