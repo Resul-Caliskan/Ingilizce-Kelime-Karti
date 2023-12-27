@@ -29,7 +29,7 @@ const kelimeler = [
   },
 ];
 
-const KelimeKartiListe = ({navigation}) => {
+const KelimeKartlari = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContaier}>
@@ -64,7 +64,7 @@ const KelimeKartiListe = ({navigation}) => {
   );
 };
 
-export default KelimeKartiListe;
+export default KelimeKartlari;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -75,8 +75,9 @@ const styles = StyleSheet.create({
   scrollView: { flex: 1, width: "90%" },
   innerContaier: {
     flex: 1,
-    borderBottomEndRadius: 30,
-    borderBottomStartRadius: 30,
+    borderBottomEndRadius: 40,
+    borderBottomStartRadius: 40,
+    marginBottom:15,
     width: "100%",
     height: "100%",
     justifyContent: "flex-start",

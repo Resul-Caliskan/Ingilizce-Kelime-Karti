@@ -53,16 +53,24 @@ const Card = ({ id, dil, kelime, renk, rotate, onPress, pressable }) => (
   </TouchableOpacity>
 );
 
+const shuffleArray = (array) => {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+};
 const EslestirmeTest = ({ navigation }) => {
   const sozluk = [
-    { ingilizce: "Hellofafdfjklasjfasdfjlj", turkce: "merhaba" },
-    { ingilizce: "what", turkce: "Ne" },
-    { ingilizce: "Hellofaf dfjklasj ff asdfjlj a", turkce: "merhaba" },
-    { ingilizce: "what", turkce: "Ne" },
-    { ingilizce: "Hellofaf dfjklasj ff asdfjlj a", turkce: "merhaba" },
-    { ingilizce: "what", turkce: "Ne" },
-    { ingilizce: "Hellofaf dfjklasj ff asdfjlj a", turkce: "merhaba" },
-    { ingilizce: "what", turkce: "Ne" },
+    { ingilizce: "Hello", turkce: "Merhaba" },
+    { ingilizce: "Goodbye", turkce: "Hoşça kal" },
+    { ingilizce: "Please", turkce: "Lütfen" },
+    { ingilizce: "Thank you", turkce: "Teşekkür ederim" },
+    { ingilizce: "Yes", turkce: "Evet" },
+    { ingilizce: "No", turkce: "Hayır" },
+    { ingilizce: "Excuse me", turkce: "Affedersiniz" },
+    { ingilizce: "Sorry", turkce: "Özür dilerim" },
     // daha fazla sözlük girişi ekleyebilirsiniz
   ];
 
@@ -71,28 +79,30 @@ const EslestirmeTest = ({ navigation }) => {
   const [puan, setPuan] = useState(0);
   const [seri, setSeri] = useState(0);
   const [kartlar, setKartlar] = useState(
-    sozluk
-      .map((item, id) => [
-        {
-          id,
-          dil: "ingilizce",
-          kelime: item.ingilizce,
-          renk: "#383e42",
-          rotate: new Animated.Value(0),
-          pressable: false,
-        },
-        {
-          id,
-          dil: "turkce",
-          kelime: item.turkce,
-          renk: "#383e42",
-          rotate: new Animated.Value(0),
-          pressable: false,
-        },
-      ])
-      .flat()
+   shuffleArray( sozluk
+    .map((item, id) => [
+      {
+        id,
+        dil: "ingilizce",
+        kelime: item.ingilizce,
+        renk: "#383e42",
+        rotate: new Animated.Value(0),
+        pressable: false,
+      },
+      {
+        id,
+        dil: "turkce",
+        kelime: item.turkce,
+        renk: "#383e42",
+        rotate: new Animated.Value(0),
+        pressable: false,
+      },
+    ])
+    .flat())
   );
-  const kelimeSayisi =kartlar.length/2 ;
+  const kelimeSayisi = kartlar.length / 2;
+  // const shuffledKartlar = shuffleArray(kartlar);
+  // console.log(shuffledKartlar.map((kart)=> kart.id));
   const tiklama = (id, dil) => {
     if (ilkTiklama === null) {
       setIlkTiklama(id);
@@ -159,17 +169,19 @@ const EslestirmeTest = ({ navigation }) => {
         >
           <MaterialCommunityIcons name="arrow-left" color={"white"} size={35} />
         </TouchableOpacity>
-        <Text style={styles.headerText}>Eşleştrime Testi</Text>
+        <Text style={styles.headerText}>Eşleştirme Testi</Text>
       </View>
       <View style={styles.durum}>
-        <Text style={styles.durumtext}>Puan:{" "+puan+ " 🌟"}</Text>
+        <Text style={styles.durumtext}>Puan:{" " + puan + " 🌟"}</Text>
         <Text style={styles.durumtext}>
           Serim:{seri}
           {(seri >= 2) & (seri < 5)
             ? " 🎖️"
             : (seri >= 5) & (seri <= 7)
             ? " 🏆"
-            : seri == kelimeSayisi ? " 💯": ""}
+            : seri == kelimeSayisi
+            ? " 💯"
+            : ""}
         </Text>
         {/* <Text style={styles.durumtext}>      </Text> */}
       </View>
@@ -211,7 +223,7 @@ const styles = StyleSheet.create({
   flatlist: {
     flex: 1,
     width: "100%",
-    paddingLeft: 10,
+    paddingLeft: 20,
     backgroundColor: "black",
     flexWrap: "wrap",
     alignContent: "center",

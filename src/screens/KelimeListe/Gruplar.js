@@ -192,7 +192,7 @@ const data = [
   // Diğer kartlar...
 ];
 
-export default function KelimeListesi({ navigation }) {
+export default function Gruplar({ navigation }) {
   const [progresses, setProgresses] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
   const [modalInfo, setModalInfo] = useState(["Baslik", 0.5, "Api" ,navigation]);
@@ -272,8 +272,9 @@ const styles = StyleSheet.create({
   },
   innerContaier: {
     flex: 1,
-    borderBottomEndRadius: 30,
-    borderBottomStartRadius: 30,
+    borderBottomEndRadius: 40,
+    borderBottomStartRadius: 40,
+    marginBottom:15,
     width: "100%",
     height: "100%",
     justifyContent: "flex-start",

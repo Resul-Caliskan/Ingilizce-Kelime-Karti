@@ -32,13 +32,14 @@ const TestImageButton = ({ images, text, backgroundColor,onPress }) => {
 const styles = StyleSheet.create({
   button: {
     width: "80%",
+    height:"11%",
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 10,
     borderEndWidth: 1,
     borderBottomWidth: 1.5,
     margin: 10,
-    padding: 12,
+    padding: 2,
   },
   image: {
     width: 50,

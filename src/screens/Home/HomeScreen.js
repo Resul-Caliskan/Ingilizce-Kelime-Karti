@@ -8,7 +8,7 @@ import AnimatedButton from "./specialComponents/kelimeGrupButon";
 
 export default function HomeScreen({navigation}) {
   onPressHandler =()=>{
-    navigation.navigate('KelimeListe');
+    navigation.navigate('Gruplar');
   }
   return (
     <View style={styles.back}>

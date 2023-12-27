@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Colors } from "../../../constants/colors";
 import TestImageButton from "./specialComponents/testButton";
 import KullaniciInfo from "../../../components/KullaniciInfo";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function TestListe({ navigation }) {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -17,66 +18,70 @@ export default function TestListe({ navigation }) {
   };
   return (
     <View style={styles.back}>
-      <View style={[styles.container, , { backgroundColor: backgroundColor }]}>
-        <KullaniciInfo
-          userName={"Resul"}
-          hosgeldin={"Hoş Geldin "}
-          mesaj={"Testler İle Öğrenmeyi Pekiştirelim"}
-          backgroundColor={butonColor}
-        />
-        <View style={styles.switchContainer}>
-          <Text style={{ color: "white", fontSize: 16 }}>{buttonText}</Text>
-          <Switch
-            trackColor={{ false: Colors.element3, true: "#ACACE6" }}
-            thumbColor={isEnabled ? "#9966CC" : Colors.element2}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={toggleSwitch}
-            value={isEnabled}
+        <View
+          style={[styles.container, , { backgroundColor: backgroundColor }]}
+        >
+          <KullaniciInfo
+            userName={"Resul"}
+            hosgeldin={"Hoş Geldin "}
+            mesaj={"Testler İle Öğrenmeyi Pekiştirelim"}
+            backgroundColor={butonColor}
+          />
+          <View style={styles.switchContainer}>
+            <Text style={{ color: "white", fontSize: 16 }}>{buttonText}</Text>
+            <Switch
+              trackColor={{ false: Colors.element3, true: "#ACACE6" }}
+              thumbColor={isEnabled ? "#9966CC" : Colors.element2}
+              ios_backgroundColor="#3e3e3e"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
+          </View>
+
+          <TestImageButton
+            images={[
+              require("../../../../assets/icon.png"),
+              require("../../../../assets/fire.png"),
+            ]}
+            text={"Kelime Eşleştirme Testi"}
+            backgroundColor={butonColor}
+            onPress={() => onPressHandler("Eslestirme")}
+            navigation={navigation}
+          />
+          <TestImageButton
+            images={[
+              require("../../../../assets/icon.png"),
+              require("../../../../assets/fire.png"),
+            ]}
+            text={"Dinleme Testi"}
+            backgroundColor={butonColor}
+            onPress={()=> onPressHandler("Dinleme")}
+          />
+          <TestImageButton
+            images={[
+              require("../../../../assets/icon.png"),
+              require("../../../../assets/fire.png"),
+            ]}
+            text={"Kelime Yazma Testi"}
+            backgroundColor={butonColor}
+          />
+          <TestImageButton
+            images={[
+              require("../../../../assets/icon.png"),
+              require("../../../../assets/fire.png"),
+            ]}
+            text={"Boşluk Doldurma Testi"}
+            backgroundColor={butonColor}
+          />
+          <TestImageButton
+            images={[
+              require("../../../../assets/icon.png"),
+              require("../../../../assets/fire.png"),
+            ]}
+            text={"Hatalarım"}
+            backgroundColor={butonColor}
           />
         </View>
-        <TestImageButton
-          images={[
-            require("../../../../assets/icon.png"),
-            require("../../../../assets/fire.png"),
-          ]}
-          text={"Kelime Eşleştirme Testi"}
-          backgroundColor={butonColor}
-          onPress={() => onPressHandler("EslestirmeTest")}
-          navigation={navigation}
-        />
-        <TestImageButton
-          images={[
-            require("../../../../assets/icon.png"),
-            require("../../../../assets/fire.png"),
-          ]}
-          text={"Dinleme Testi"}
-          backgroundColor={butonColor}
-        />
-        <TestImageButton
-          images={[
-            require("../../../../assets/icon.png"),
-            require("../../../../assets/fire.png"),
-          ]}
-          text={"Kelime Yazma Testi"}
-          backgroundColor={butonColor}
-        />
-        <TestImageButton
-          images={[
-            require("../../../../assets/icon.png"),
-            require("../../../../assets/fire.png"),
-          ]}
-          text={"Boşluk Doldurma Testi"}
-          backgroundColor={butonColor}
-        />
-        <TestImageButton
-          images={[
-            require("../../../../assets/icon.png"),
-            require("../../../../assets/fire.png"),
-          ]}
-          text={"Hatalarım"}
-          backgroundColor={butonColor}
-        />
-      </View>
     </View>
   );
 }
