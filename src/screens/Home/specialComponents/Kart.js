@@ -17,8 +17,8 @@ const Kart = () => {
     Animated.loop(
       Animated.sequence([
         Animated.timing(colorAnimation, {
-          toValue: 1,
-          duration: 1500,
+          toValue: 2,
+          duration: 2000,
           useNativeDriver: false,
         }),
         Animated.timing(colorAnimation, {
@@ -34,8 +34,8 @@ const Kart = () => {
     borderRadius: 20,
     margin: 5,
     backgroundColor: colorAnimation.interpolate({
-      inputRange: [0, 1],
-      outputRange: [Colors.mediumseagreen, Colors.mediumspringgreen],
+      inputRange: [0, 1,2],
+      outputRange: [Colors.mediumseagreen,Colors.element3, Colors.mediumspringgreen],
     }),
   };
   return (
