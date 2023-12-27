@@ -11,7 +11,7 @@ import * as Speech from "expo-speech";
 import { Colors } from "../../../constants/colors";
 import shuffleArray from "../../../backEnd/functions/shuffleArray";
 
-const YazmaTest = ({}) => {
+const YazmaTest = ({ navigation }) => {
   const sozluk = [
     { ingilizce: "Hello", turkce: "Merhaba" },
     { ingilizce: "Goodbye", turkce: "Hoşça kal" },
@@ -35,6 +35,7 @@ const YazmaTest = ({}) => {
 
   const handleClearPress = () => {
     setInputText("");
+    setCheck(0);
   };
   const kelimeyiSeslendir = (Kelime) => {
     setLoading(true);
@@ -50,26 +51,35 @@ const YazmaTest = ({}) => {
       },
     });
   };
-  const renderLetterButtons = (kelimeIndex) => {
-    const kelime = sozluk[kelimeIndex];
+  const renderLetterButtons = (index) => {
+    const kelime = sozluk[index];
 
     return (
       <View key={kelimeIndex} style={styles.wordContainer}>
-        {kelime.ingilizce.split("").map((harf, harfIndex) => (
-          <TouchableOpacity
-            key={harfIndex}
-            style={styles.letterButton}
-            onPress={() => {
-              if (harfIndex == check) {
-                handleLetterPress(harf);
-                setCheck(check + 1);
-              } else {
-              }
-            }}
-          >
-            <Text>{harf}</Text>
-          </TouchableOpacity>
-        ))}
+        {kelime.ingilizce
+          .toUpperCase()
+          .split("")
+          .map((harf, harfIndex) => (
+            <TouchableOpacity
+              key={harfIndex}
+              style={styles.letterButton}
+              onPress={() => {
+                //KELİMEYİ DOĞRU YAZDIĞINI BURADA KONTROL EDİYORUM !!!!!
+                if (harfIndex === check) {
+                  handleLetterPress(harf);
+                  setCheck(check + 1);
+                  if (kelime.ingilizce.length - 1 === check) {
+                    setTimeout(() => {
+                      setKelimeIndex(kelimeIndex + 1);
+                      handleClearPress();
+                    }, 900);
+                  }
+                }
+              }}
+            >
+              <Text style={{ fontSize: 18, fontWeight: "800" }}>{harf}</Text>
+            </TouchableOpacity>
+          ))}
       </View>
     );
   };
@@ -85,7 +95,7 @@ const YazmaTest = ({}) => {
         >
           <MaterialCommunityIcons name="arrow-left" color={"white"} size={35} />
         </TouchableOpacity>
-        <Text style={styles.headerText}>Eşleştirme Testi</Text>
+        <Text style={styles.headerText}>Yazma Testi</Text>
       </View>
       {/* DURUM SATIRI */}
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -120,7 +130,22 @@ const YazmaTest = ({}) => {
           }}
         >
           <Text style={styles.kelime}>Kelimenin Anlamı:</Text>
-          <Text style={styles.kelime}>{sozluk[kelimeIndex].turkce}</Text>
+          <Text
+            style={[
+              styles.kelime,
+              {
+                fontWeight: 700,
+                fontSize: 20,
+                borderBottomWidth: 1,
+                color: Colors.mediumspringgreen,
+                paddingBottom: 2,
+                borderColor: Colors.mediumspringgreen,
+                borderRadius: 20,
+              },
+            ]}
+          >
+            {sozluk[kelimeIndex].turkce}
+          </Text>
         </View>
         <TouchableOpacity
           disabled={loading}
@@ -150,9 +175,6 @@ const YazmaTest = ({}) => {
       </View>
       <View style={styles.inputContainer}>
         <Text style={styles.inputText}>{inputText}</Text>
-        <TouchableOpacity style={styles.clearButton} onPress={handleClearPress}>
-          <Text>Clear</Text>
-        </TouchableOpacity>
       </View>
       <View style={styles.keyboardContainer}>
         {renderLetterButtons(kelimeIndex)}
@@ -170,27 +192,32 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
     marginBottom: 20,
   },
   inputText: {
-    fontSize: 20,
+    fontSize: 30,
+    fontWeight: "700",
     marginRight: 10,
+    color: "white",
   },
-  clearButton: {
-    padding: 10,
-    backgroundColor: "lightgray",
-    borderRadius: 5,
-  },
+
   keyboardContainer: {
     flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
   wordContainer: {
+    width: "40%",
     flexDirection: "row",
     marginBottom: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
   },
   letterButton: {
     margin: 5,
-    padding: 10,
+    padding: 20,
     backgroundColor: "lightblue",
     borderRadius: 5,
   },
@@ -251,6 +278,7 @@ const styles = StyleSheet.create({
   kelime: {
     paddingHorizontal: 10,
     fontSize: 16,
+    fontWeight: "300",
     color: "white",
   },
   card: {

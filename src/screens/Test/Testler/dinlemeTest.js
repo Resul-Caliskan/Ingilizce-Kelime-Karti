@@ -116,6 +116,7 @@ const DinlemeTest = ({ navigation }) => {
         // EĞER SON KELİMEYE GELİNDİYSE OYUN BİTİRİLEBİLİR
         // Burada isteğe bağlı olarak oyun bitirme işlemleri yapılabilir.
       }
+      setPuan(puan+1);
     } else {
       //EĞER TIKLANILAN YANLIŞSA ROTATE ET VE KIRMIZI YAP
       setKartlar(
@@ -168,11 +169,13 @@ const DinlemeTest = ({ navigation }) => {
         >
           <MaterialCommunityIcons name="arrow-left" color={"white"} size={35} />
         </TouchableOpacity>
-        <Text style={styles.headerText}>Eşleştirme Testi</Text>
+        <Text style={styles.headerText}>Dinleme Testi</Text>
       </View>
       {/* DURUM SATIRI */}
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <Text style={styles.durum}>Puan: {puan}</Text>
+        <Text style={styles.durum}>
+          Puan: {puan} {"🌟"}
+        </Text>
         <Text style={styles.durum}>Seri: {seri}</Text>
         <Text style={styles.durum}>
           {kelimeIndex + 1}/{sozluk.length}
@@ -211,7 +214,22 @@ const DinlemeTest = ({ navigation }) => {
           }}
         >
           <Text style={styles.kelime}>Kelimenin Anlamı:</Text>
-          <Text style={styles.kelime}>{sozluk[kelimeIndex].turkce}</Text>
+          <Text
+            style={[
+              styles.kelime,
+              {
+                fontWeight: 700,
+                fontSize: 20,
+                borderBottomWidth: 1,
+                color: Colors.mediumspringgreen,
+                paddingBottom: 2,
+                borderColor: Colors.mediumspringgreen,
+                borderRadius: 20,
+              },
+            ]}
+          >
+            {sozluk[kelimeIndex].turkce}
+          </Text>
         </View>
         <TouchableOpacity
           disabled={loading}
@@ -314,12 +332,14 @@ const styles = StyleSheet.create({
     left: 40,
     top: 32,
     color: "white",
-    fontSize: 16,
+    fontWeight: "600",
+    fontSize: 18,
   },
-  durum: { margin: 5, marginHorizontal: 15, color: "white" },
+  durum: { margin: 5, marginHorizontal: 15, color: "white", fontSize: 16 },
   kelime: {
     paddingHorizontal: 10,
     fontSize: 16,
+    fontWeight: "300",
     color: "white",
   },
   card: {

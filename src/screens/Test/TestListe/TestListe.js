@@ -66,14 +66,14 @@ export default function TestListe({ navigation }) {
             backgroundColor={butonColor}
             onPress={()=> onPressHandler("Yazma")}
           />
-          <TestImageButton
+          {/* <TestImageButton
             images={[
               require("../../../../assets/icon.png"),
               require("../../../../assets/fire.png"),
             ]}
             text={"Boşluk Doldurma Testi"}
             backgroundColor={butonColor}
-          />
+          /> */}
           <TestImageButton
             images={[
               require("../../../../assets/icon.png"),
