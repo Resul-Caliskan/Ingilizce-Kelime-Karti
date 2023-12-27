@@ -103,7 +103,8 @@
 //   );
 // }
 
-import React from "react";
+import React, { useEffect } from "react";
+import { BackHandler } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -116,11 +117,24 @@ import EslestirmeTest from "../screens/Test/Testler/eslestirmeTest";
 import KelimeKartlari from "../screens/KelimeKarti/KelimeKartlari";
 import DinlemeTest from "../screens/Test/Testler/dinlemeTest";
 import YazmaTest from "../screens/Test/Testler/yazmaTesti";
+import LoginScreen from "../screens/Login/login";
+import AdminLoginScreen from "../screens/Login/adminLogin";
+import AdminPanel from "../screens/Login/adminPanel";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 function HomeStack() {
+  // useEffect(() => {
+  //   const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+  //     // Geri tuşuna basıldığında login ekranına geri dönmesini engelle
+  //     return true;
+  //   });
+
+  //   return () => {
+  //     backHandler.remove();
+  //   };
+  // }, []);
   return (
     <Tab.Navigator
       screenOptions={{
@@ -189,9 +203,14 @@ export default function BottomNavigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="Login"
         screenOptions={{ headerShown: false, animation: "slide_from_bottom" }}
       >
+        <Stack.Group>
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="AdminLogin" component={AdminLoginScreen} />
+          <Stack.Screen name="AdminPanel" component={AdminPanel} />
+        </Stack.Group>
         <Stack.Group>
           <Stack.Screen name="Home" component={HomeStack} />
           <Stack.Screen name="Gruplar" component={Gruplar} />

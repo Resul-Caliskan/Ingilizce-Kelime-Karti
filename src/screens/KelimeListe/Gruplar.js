@@ -195,13 +195,19 @@ const data = [
 export default function Gruplar({ navigation }) {
   const [progresses, setProgresses] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
-  const [modalInfo, setModalInfo] = useState(["Baslik", 0.5, "Api" ,navigation]);
+  const [modalInfo, setModalInfo] = useState([
+    "Baslik",
+    0.5,
+    "Api",
+    navigation,
+  ]);
   useEffect(() => {
     data.forEach((item) => {
       setProgresses((prev) => ({
         ...prev,
         [item.id]: Math.random(), // Burada progress değerini hesaplayabilirsiniz
       }));
+      console.log(item.text);
     });
   }, []);
   onPressHandlerBack = () => {
@@ -210,7 +216,7 @@ export default function Gruplar({ navigation }) {
 
   return (
     <View style={styles.container}>
-     {/** MODAL BURADA */}
+      {/** MODAL BURADA */}
       <ModalComponent
         baslik={modalInfo[0]}
         modalVisible={modalVisible}
@@ -274,7 +280,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderBottomEndRadius: 40,
     borderBottomStartRadius: 40,
-    marginBottom:15,
+    marginBottom: 15,
     width: "100%",
     height: "100%",
     justifyContent: "flex-start",
