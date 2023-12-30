@@ -209,12 +209,13 @@ const DinlemeTest = ({ navigation }) => {
             justifyContent: "center",
             alignItems: "center",
             position: "absolute",
-            left: "30%",
+            left: "26%",
             top: "15%",
           }}
         >
-          <Text style={styles.kelime}>Kelimenin Anlamı:</Text>
-          <Text
+        <Text style={styles.kelime}>Kelimeyi Dinlemek İçin</Text>
+        <Text style={styles.kelime}>Tıklayın ---{">"}</Text>
+          {/* <Text
             style={[
               styles.kelime,
               {
@@ -229,7 +230,7 @@ const DinlemeTest = ({ navigation }) => {
             ]}
           >
             {sozluk[kelimeIndex].turkce}
-          </Text>
+          </Text> */}
         </View>
         <TouchableOpacity
           disabled={loading}
@@ -339,7 +340,7 @@ const styles = StyleSheet.create({
   kelime: {
     paddingHorizontal: 10,
     fontSize: 16,
-    fontWeight: "300",
+    fontWeight: "600",
     color: "white",
   },
   card: {

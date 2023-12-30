@@ -126,7 +126,7 @@ const AnimatedButton = ({ onPress }) => {
           }),
           Animated.timing(rotateAnimation, {
             toValue: 3, 
-            duration: 1500,
+            duration: 500,
             useNativeDriver: false,
           }),
         ]),
@@ -143,7 +143,7 @@ const AnimatedButton = ({ onPress }) => {
           }),
           Animated.timing(rotateAnimation, {
             toValue: 0,
-            duration: 1000,
+            duration: 500,
             useNativeDriver: false,
           }),
         ]),
@@ -165,8 +165,13 @@ const AnimatedButton = ({ onPress }) => {
     transform: [
       {
         rotate: rotateAnimation.interpolate({
-          inputRange: [0, 1,2,3],
-          outputRange: ["0deg", "-10deg","10deg","-5deg"],
+          inputRange: [0, 1, 2,3],
+                outputRange: [
+                  "0deg",
+                  "7deg",
+                  "-7deg",
+                  "0deg"
+                ],
         }),
       },
     ],
@@ -178,7 +183,7 @@ const AnimatedButton = ({ onPress }) => {
       outputRange: [14, 20],
     }),
     fontWeight: "bold",
-    color: "white",
+    color: Colors.anaEkranYazi,
   };
 
   return (

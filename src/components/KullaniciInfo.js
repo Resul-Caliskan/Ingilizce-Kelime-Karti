@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "flex-end",
     padding: 20,
-    marginTop: StatusBar.currentHeight,
+    marginTop: StatusBar.currentHeight - 10,
   },
   header: {
     flexDirection: "row",
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 30,
     borderWidth: 2,
-    borderColor: "white",
+    borderColor: Colors.anaEkranYazi,
   },
   textView: {
     alignSelf: "flex-start",
@@ -82,13 +82,13 @@ const styles = StyleSheet.create({
     left: 15,
   },
   welcomeText: {
-    color: "#fff",
+    color: Colors.anaEkranYazi,
     fontSize: 18,
     marginTop: 10,
     alignSelf: "flex-start",
   },
   continueText: {
-    color: "#fff",
+    color: Colors.anaEkranYazi,
     fontSize: 16,
     marginTop: 5,
     alignSelf: "flex-start",

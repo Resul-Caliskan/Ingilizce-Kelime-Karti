@@ -207,7 +207,7 @@ export default function Gruplar({ navigation }) {
         ...prev,
         [item.id]: Math.random(), // Burada progress değerini hesaplayabilirsiniz
       }));
-      console.log(item.text);
+     // console.log(item.text);
     });
   }, []);
   onPressHandlerBack = () => {

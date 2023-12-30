@@ -4,14 +4,14 @@ import { LineChart } from "react-native-chart-kit";
 import { Colors } from "../../../constants/colors";
 
 const chartConfig = {
-  backgroundGradientFrom: Colors.navyBlue,
+  // backgroundGradientFrom: Colors.navyBlue,
   backgroundGradientFromOpacity: 0,
-  backgroundGradientTo: Colors.navyBlue,
+  // backgroundGradientTo: "",
   backgroundGradientToOpacity: 0,
-  fillShadowGradient: "rgb(26, 255, 146)", // The color used for the fill shadow gradient
-  fillShadowGradientOpacity: 0.8,
-  color: () => `rgb(26, 255, 146)`,
-  labelColor: () => `white`,
+  // fillShadowGradient: "rgb(26, 255, 146)", // The color used for the fill shadow gradient
+  fillShadowGradientOpacity: 0,
+  color: () => Colors.anaEkranYazi,
+  labelColor: () => Colors.anaEkranYazi,
   decimalPlaces: 0,
   barPercentage: 1,
   propsForLabels: {
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   seriesName: {
-    color: "#fff",
+    color:Colors.anaEkranYazi,
     fontSize: 20,
     marginRight: 0,
   },

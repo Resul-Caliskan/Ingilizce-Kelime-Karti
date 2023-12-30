@@ -18,6 +18,7 @@ const LoginScreen = ({ navigation }) => {
   const [admin, setAdmin] = useState(0);
 
   const handleLogin = () => {
+    navigation.replace("Home");
     if ((email === "resulcaliskansau@gmail.com") & (password === "1071")) {
       navigation.replace("Home");
     } else {

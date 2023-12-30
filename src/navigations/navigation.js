@@ -143,8 +143,8 @@ function HomeStack() {
           backgroundColor: Colors.element1,
         },
         headerShown: false,
-        tabBarActiveTintColor: Colors.element2,
-        tabBarInactiveTintColor: Colors.honeydew,
+        tabBarActiveTintColor: Colors.turuncu,
+        tabBarInactiveTintColor: Colors.anaEkranYazi,
       }}
     >
       <Tab.Screen

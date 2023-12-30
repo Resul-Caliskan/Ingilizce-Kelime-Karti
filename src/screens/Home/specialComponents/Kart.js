@@ -17,7 +17,7 @@ const Kart = () => {
     Animated.loop(
       Animated.sequence([
         Animated.timing(colorAnimation, {
-          toValue: 2,
+          toValue: 1,
           duration: 2000,
           useNativeDriver: false,
         }),
@@ -34,8 +34,8 @@ const Kart = () => {
     borderRadius: 20,
     margin: 5,
     backgroundColor: colorAnimation.interpolate({
-      inputRange: [0, 1,2],
-      outputRange: [Colors.mediumseagreen,Colors.element3, Colors.mediumspringgreen],
+      inputRange: [0, 1],
+      outputRange: ["#ADD8E6","#F0F8FF"],
     }),
   };
   return (
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "black",
+    color: Colors.anaEkranYazi,
   },
 });
 

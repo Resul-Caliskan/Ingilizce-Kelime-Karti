@@ -44,11 +44,11 @@ const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
               />
             </TouchableOpacity>
             <MaterialCommunityIcons
-             style={styles.turnCard}
-                name="cursor-default-click-outline"
-                color={Colors.black}
-                size={25}
-              />
+              style={styles.turnCard}
+              name="cursor-default-click-outline"
+              color={Colors.black}
+              size={25}
+            />
           </View>
 
           <TouchableOpacity onPress={handleAddToList}>
@@ -60,15 +60,13 @@ const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
         {/* Arka yüz */}
         <View style={styles.backFace}>
           <View style={styles.textView}>
-            <Text style={[styles.text, { margin: 15 }]}>
-              {turkceAnlam}
-            </Text>
+            <Text style={[styles.text, { margin: 15 }]}>{turkceAnlam}</Text>
             <MaterialCommunityIcons
-             style={styles.turnCard}
-                name="cursor-default-click-outline"
-                color={Colors.black}
-                size={25}
-              />
+              style={styles.turnCard}
+              name="cursor-default-click-outline"
+              color={Colors.black}
+              size={25}
+            />
           </View>
           <TouchableOpacity onPress={handleAddToList}>
             <View style={styles.add}>
@@ -103,7 +101,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "teal",
+    backgroundColor: Colors.element1,
   },
   backFace: {
     borderWidth: 2,
@@ -114,7 +112,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "teal",
+    backgroundColor: Colors.element1,
   },
   text: {
     fontSize: 20,
@@ -139,10 +137,10 @@ const styles = StyleSheet.create({
     padding: 5,
     borderBottomWidth: 1,
   },
-  turnCard:{
-    position:"absolute",
-    left:10,
-    bottom:10,
+  turnCard: {
+    position: "absolute",
+    left: 10,
+    bottom: 10,
   },
   add: {
     borderRadius: 10,
