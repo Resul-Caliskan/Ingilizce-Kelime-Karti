@@ -1,39 +1,36 @@
 import React from "react";
-import { View, Text } from "react-native";
-// import * as firebase from "firebase";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { View, Text, TouchableOpacity } from "react-native";
+import firebase from "firebase/compat/app";
+import firebaseConfig from "../../backEnd/firebaseFunctions/firebaseConfig";
+import "firebase/compat/firestore";
+import data from "../../backEnd/dataBase";
+import isDunyasi from "../../backEnd/DataBase/isDunyasi";
 
-// const firebaseConfig = {
-//   apiKey: "<API_KEY>",
-//   authDomain: "<AUTH_DOMAIN>",
-//   databaseURL: "<DATABASE_URL>",
-//   projectId: "<PROJECT_ID>",
-//   storageBucket: "<STORAGE_BUCKET>",
-//   messagingSenderId: "<MESSAGING_SENDER_ID>",
-//   appId: "<APP_ID>",
-// };
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
-// firebase.initializeApp(firebaseConfig);
-// function saveDataToFirebase(data) {
-//   firebase
-//     .database()
-//     .ref("adminPanel/")
-//     .push(data)
-//     .then((data) => {
-//       console.log("data ", data);
-//     })
-//     .catch((error) => {
-//       console.log("error ", error);
-//     });
-// }
-const AdminPanel = () => {
+export default function AdminPanel() {
+  const sendDataToFirebase = async () => {
+    try {
+      const db = firebase.firestore();
+
+      await db.collection("gruplar").doc("isDunyasi").set(data);
+
+      console.log("Veri Firebase'e gönderildi.");
+    } catch (error) {
+      console.error("Firebase veri gönderme hatası:", error);
+    }
+  };
+
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <TouchableOpacity onPress={saveDataToFirebase(isDunyasi)}>
-        <Text>Admin Panel Dashboard</Text>
+      <TouchableOpacity
+        onPress={sendDataToFirebase}
+        style={{ padding: 10, backgroundColor: "blue", borderRadius: 5 }}
+      >
+        <Text style={{ color: "white" }}>Firebase'e Veri Gönder</Text>
       </TouchableOpacity>
     </View>
   );
-};
-
-export default AdminPanel;
+}

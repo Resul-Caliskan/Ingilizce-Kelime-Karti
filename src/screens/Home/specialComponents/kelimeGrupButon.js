@@ -160,7 +160,7 @@ const AnimatedButton = ({ onPress }) => {
     margin: 30,
     backgroundColor: colorAnimation.interpolate({
       inputRange: [0, 1, 2],
-      outputRange: [Colors.honeydew, Colors.element1, Colors.element2],
+      outputRange: [Colors.turuncu, Colors.element1, Colors.element2],
     }),
     transform: [
       {
