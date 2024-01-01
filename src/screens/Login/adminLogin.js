@@ -27,7 +27,7 @@ const AdminLoginScreen = ({ navigation }) => {
   };
   const handleAdmin = () => {
     setAdmin(admin + 1);
-    if (admin >= 30) {
+    if (admin >= 10) {
       navigation.navigate("AdminPanel");
     }
   };

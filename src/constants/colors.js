@@ -23,4 +23,5 @@ export const Colors = {
   element3: "#3D8278",
   mediumspringgreen: "mediumspringgreen",
   mediumseagreen: "mediumseagreen",
+  limeGreen:"limegreen",
 };

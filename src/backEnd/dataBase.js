@@ -2,7 +2,7 @@ const data = {
     Toplam: 0,
     Veriler: {
       IsDunyasi: {
-        Grup: "IsDunyasi",
+        GrupID:1,
         ogrenilen: 0,
         ilkKez: 0,
         kelimeler: [
@@ -744,7 +744,7 @@ const data = {
         ],
       },
       GeziVeSeyahat: {
-        Grup: "GeziVeSeyahat",
+        GrupID: 2,
         ogrenilen: 0,
         ilkKez: 0,
         kelimeler: [
@@ -1731,7 +1731,7 @@ const data = {
         ],
       },
       EvVeEsyalar: {
-        Grup: "EvVeEsyalar",
+        GrupID: 3,
         ogrenilen: 0,
         ilkKez: 0,
         kelimeler: [

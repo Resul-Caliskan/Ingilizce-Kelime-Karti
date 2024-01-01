@@ -13,9 +13,6 @@ const fetchDataAndNavigate = async (collectionName, documentName, datas,group,co
   try {
     // getWordsUntilIndex işlemini await kullanarak bekletiyoruz
     const kelimeler = await getWordsUntilIndex(collectionName, documentName, datas,group, count);
-
-    console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-    console.log(kelimeler);
     // Bu kısımda Gideceği sayfayla ilgili props'ları vereceğiz
     navgation.navigate("KelimeKartiListe", { kelimeler: kelimeler });
   } catch (error) {
@@ -23,12 +20,25 @@ const fetchDataAndNavigate = async (collectionName, documentName, datas,group,co
     // Hata durumunda isteğinizi uygun bir şekilde ele alabilirsiniz
   }
 };
+checkSwitch = (param) => {
+  switch (param) {
+    case '1':
+      return "IsDunyasi";
+    case '2':
+      return "GeziVeSeyahat";
+    case '3':
+      return "EvVeEsyalar";
+    default:
+      return "IsDunyasi";
+  }
+}
 
 const ModalComponent = ({
   modalVisible,
   setModalVisible,
   progress,
   baslik,
+  id,
   api,
   navgation,
 }) => {
@@ -88,7 +98,7 @@ const ModalComponent = ({
           <Text style={{ fontSize: 30, textAlign: "center" }}>{count}</Text>
         </View>
         <Text style={[styles.modalText, { marginBottom: 2, color: "red" }]}>
-          {count > 15 ? "Bu kadarı öğrenmek için fazla değil mi ?" : ""}
+          {count > 10 ? "Bu kadarı öğrenmek için fazla değil mi ?" : ""}
         </Text>
         {/** ARTI EKSI BUTONLARI */}
         <View style={styles.buttonView}>
@@ -107,9 +117,9 @@ const ModalComponent = ({
           <TouchableOpacity
             style={[
               styles.buttons,
-              count >= 20 ? { backgroundColor: "grey" } : {},
+              count >= 15 ? { backgroundColor: "grey" } : {},
             ]}
-            disabled={count >= 20 ? true : false}
+            disabled={count >= 15 ? true : false}
             onPress={() => {
               setCount(count + 1);
             }}
@@ -127,8 +137,10 @@ const ModalComponent = ({
           disabled={count == 0 ? true : false}
           onPress={() => {
             // kelimeler alındıktan sonra diğer işlemleri gerçekleştiriyoruz
+            const group=checkSwitch (id);
+            fetchDataAndNavigate(collectionName, documentName, datas,group,count,navgation);
             setModalVisible(!modalVisible);
-            fetchDataAndNavigate(collectionName, documentName, datas,"EvVeEsyalar",count,navgation);
+            setCount(0);
           }}
         >
           <Text style={styles.textStyle}>Kartları Getir</Text>

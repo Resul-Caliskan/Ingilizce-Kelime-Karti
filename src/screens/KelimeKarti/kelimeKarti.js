@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   add: {
     borderRadius: 10,
     margin: 15,
-    backgroundColor: Colors.element2,
+    backgroundColor: Colors.limeGreen,
     padding: 8,
   },
   text2: { fontSize: 16, fontWeight: "500" },

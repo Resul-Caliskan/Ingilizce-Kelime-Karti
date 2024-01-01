@@ -76,118 +76,118 @@ const data = [
     textColor: "#FFFFFF",
     imageSource: require("../../../assets/fire.png"),
   },
-  {
-    id: "10",
-    text: "Kişisel İlişkiler",
-    bgColor: "#2E294E",
-    textColor: "#FFFFFF",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "11",
-    text: "Alışveriş",
-    bgColor: "#FFFD82",
-    textColor: "#000000",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "12",
-    text: "Dil Öğrenme",
-    bgColor: "#011638",
-    textColor: "#FFFFFF",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "13",
-    text: "Günlük Yaşam",
-    bgColor: "#FFC300",
-    textColor: "#000000",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "14",
-    text: "Spor",
-    bgColor: "#FF5733",
-    textColor: "#FFFFFF",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "15",
-    text: "Müzik",
-    bgColor: "#900C3F",
-    textColor: "#FFFFFF",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "16",
-    text: "Sanat ve Kültür",
-    bgColor: "#DAF7A6",
-    textColor: "#000000",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "17",
-    text: "Bilim ve Teknoloji",
-    bgColor: "#581845",
-    textColor: "#FFFFFF",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "18",
-    text: "Hukuk ve Politika",
-    bgColor: "#C70039",
-    textColor: "#FFFFFF",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "19",
-    text: "Ekonomi ve Finans",
-    bgColor: "#FFC300",
-    textColor: "#000000",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "20",
-    text: "Medya ve Haberler",
-    bgColor: "#FF5733",
-    textColor: "#FFFFFF",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "21",
-    text: "Çevre ve Ekoloji",
-    bgColor: "#900C3F",
-    textColor: "#FFFFFF",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "22",
-    text: "Psikoloji ve Felsefe",
-    bgColor: "#DAF7A6",
-    textColor: "#000000",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "23",
-    text: "Din ve Spiritüalite",
-    bgColor: "#581845",
-    textColor: "#FFFFFF",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "24",
-    text: "Moda ve Güzellik",
-    bgColor: "#C70039",
-    textColor: "#FFFFFF",
-    imageSource: require("../../../assets/fire.png"),
-  },
-  {
-    id: "25",
-    text: "Yerel Kültür ve Gelenekler",
-    bgColor: "#FFC300",
-    textColor: "#000000",
-    imageSource: require("../../../assets/fire.png"),
-  },
+  // {
+  //   id: "10",
+  //   text: "Kişisel İlişkiler",
+  //   bgColor: "#2E294E",
+  //   textColor: "#FFFFFF",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "11",
+  //   text: "Alışveriş",
+  //   bgColor: "#FFFD82",
+  //   textColor: "#000000",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "12",
+  //   text: "Dil Öğrenme",
+  //   bgColor: "#011638",
+  //   textColor: "#FFFFFF",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "13",
+  //   text: "Günlük Yaşam",
+  //   bgColor: "#FFC300",
+  //   textColor: "#000000",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "14",
+  //   text: "Spor",
+  //   bgColor: "#FF5733",
+  //   textColor: "#FFFFFF",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "15",
+  //   text: "Müzik",
+  //   bgColor: "#900C3F",
+  //   textColor: "#FFFFFF",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "16",
+  //   text: "Sanat ve Kültür",
+  //   bgColor: "#DAF7A6",
+  //   textColor: "#000000",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "17",
+  //   text: "Bilim ve Teknoloji",
+  //   bgColor: "#581845",
+  //   textColor: "#FFFFFF",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "18",
+  //   text: "Hukuk ve Politika",
+  //   bgColor: "#C70039",
+  //   textColor: "#FFFFFF",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "19",
+  //   text: "Ekonomi ve Finans",
+  //   bgColor: "#FFC300",
+  //   textColor: "#000000",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "20",
+  //   text: "Medya ve Haberler",
+  //   bgColor: "#FF5733",
+  //   textColor: "#FFFFFF",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "21",
+  //   text: "Çevre ve Ekoloji",
+  //   bgColor: "#900C3F",
+  //   textColor: "#FFFFFF",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "22",
+  //   text: "Psikoloji ve Felsefe",
+  //   bgColor: "#DAF7A6",
+  //   textColor: "#000000",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "23",
+  //   text: "Din ve Spiritüalite",
+  //   bgColor: "#581845",
+  //   textColor: "#FFFFFF",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "24",
+  //   text: "Moda ve Güzellik",
+  //   bgColor: "#C70039",
+  //   textColor: "#FFFFFF",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
+  // {
+  //   id: "25",
+  //   text: "Yerel Kültür ve Gelenekler",
+  //   bgColor: "#FFC300",
+  //   textColor: "#000000",
+  //   imageSource: require("../../../assets/fire.png"),
+  // },
 
   // Diğer kartlar...
 ];
@@ -198,7 +198,7 @@ export default function Gruplar({ navigation }) {
   const [modalInfo, setModalInfo] = useState([
     "Baslik",
     0.5,
-    "Api",
+    1,
     navigation,
   ]);
   useEffect(() => {
@@ -207,7 +207,6 @@ export default function Gruplar({ navigation }) {
         ...prev,
         [item.id]: Math.random(), // Burada progress değerini hesaplayabilirsiniz
       }));
-     // console.log(item.text);
     });
   }, []);
   onPressHandlerBack = () => {
@@ -223,6 +222,7 @@ export default function Gruplar({ navigation }) {
         setModalVisible={setModalVisible}
         progress={modalInfo[1]}
         navgation={navigation}
+        id={modalInfo[2]}
       />
       <View style={styles.innerContaier}>
         <View style={styles.header}>
@@ -250,7 +250,7 @@ export default function Gruplar({ navigation }) {
               <TouchableOpacity
                 onPress={() => {
                   setModalVisible(!modalVisible);
-                  setModalInfo([item.text, progresses[item.id], "api"]);
+                  setModalInfo([item.text, progresses[item.id], item.id]);
                 }}
               >
                 <Card

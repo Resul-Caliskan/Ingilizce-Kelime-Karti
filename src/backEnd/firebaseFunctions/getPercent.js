@@ -5,12 +5,11 @@ import firebaseConfig from "./firebaseConfig";
 const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
 
-const getWordsUntilIndex = async (
+const getPercent = async (
   collectionName,
   documentName,
   fieldName,
   groupName,
-  index
 ) => {
   try {
     const documentRef = doc(
@@ -22,13 +21,12 @@ const getWordsUntilIndex = async (
     if (documentSnapshot.exists()) {
       const data = documentSnapshot.data();
 
-      if (data && data[fieldName] && data[fieldName][groupName] && data[fieldName][groupName]["kelimeler"]) {
-        const words = data[fieldName][groupName]["kelimeler"]
-          .filter((item, i) => i < index)
-          .map((item) => item.kelime);
+      if (data && data[fieldName] && data[fieldName][groupName]) {
+        const percent = data[fieldName][groupName]["ogrenilen"]
+        const tumu=  data[fieldName][groupName]["kelimeler"].length;
 
-        
-        return words;
+        console.log("Tumu:"+tumu);
+        return percent;
       } else {
         console.log("Belirli alan içinde kelimeler bulunamadı.");
         return null;
@@ -43,4 +41,4 @@ const getWordsUntilIndex = async (
   }
 };
 
-export default getWordsUntilIndex;
+export default getPercent;

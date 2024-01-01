@@ -14,8 +14,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const KelimeKartlari = ({navigation,route}) => {
   const {kelimeler}=route.params;
-  console.log("------------");
-  console.log(kelimeler);
   return (
     <View style={styles.container}>
       <View style={styles.innerContaier}>

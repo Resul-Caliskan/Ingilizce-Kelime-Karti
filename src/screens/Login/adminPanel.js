@@ -25,6 +25,7 @@ export default function AdminPanel() {
 
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <Text>Çok İşlevsel Panel</Text>
       <TouchableOpacity
         onPress={sendDataToFirebase}
         style={{ padding: 10, backgroundColor: "blue", borderRadius: 5 }}
