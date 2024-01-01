@@ -2,6 +2,28 @@ import React, { useState } from "react";
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import * as Progress from "react-native-progress";
 import { Colors } from "../../../../constants/colors";
+import getWordsUntilIndex from "../../../../backEnd/firebaseFunctions/getDataFireBase";
+
+// Kullanım örneği
+const collectionName = 'gruplar';
+const documentName = 'kelimeler';
+const datas= 'Veriler';
+
+const fetchDataAndNavigate = async (collectionName, documentName, datas,group,count,navgation) => {
+  try {
+    // getWordsUntilIndex işlemini await kullanarak bekletiyoruz
+    const kelimeler = await getWordsUntilIndex(collectionName, documentName, datas,group, count);
+
+    console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+    console.log(kelimeler);
+    // Bu kısımda Gideceği sayfayla ilgili props'ları vereceğiz
+    navgation.navigate("KelimeKartiListe", { kelimeler: kelimeler });
+  } catch (error) {
+    console.error("Veri alınamadı. Hata:", error);
+    // Hata durumunda isteğinizi uygun bir şekilde ele alabilirsiniz
+  }
+};
+
 const ModalComponent = ({
   modalVisible,
   setModalVisible,
@@ -12,6 +34,7 @@ const ModalComponent = ({
 }) => {
   const [count, setCount] = useState(0);
 
+  
   return (
     <Modal
       animationType="slide"
@@ -51,8 +74,7 @@ const ModalComponent = ({
           % {parseInt(progress * 100)} Tamamlandı {"\n"}{" "}
           {parseInt(progress * 100) > 60
             ? "🔥🔥🔥  Aman Aman   🔥🔥🔥"
-            :
-            parseInt(progress * 100) > 30
+            : parseInt(progress * 100) > 30
             ? "🔥🔥 Alev Alev  🔥🔥"
             : parseInt(progress * 100) > 10
             ? "🎊  Helal Olsun  🎊"
@@ -104,10 +126,9 @@ const ModalComponent = ({
           ]}
           disabled={count == 0 ? true : false}
           onPress={() => {
-
+            // kelimeler alındıktan sonra diğer işlemleri gerçekleştiriyoruz
             setModalVisible(!modalVisible);
-            //Bu kısımda Gideceği sayfayla ilgili props ları vereceğiz
-            navgation.navigate("KelimeKartiListe");
+            fetchDataAndNavigate(collectionName, documentName, datas,"EvVeEsyalar",count,navgation);
           }}
         >
           <Text style={styles.textStyle}>Kartları Getir</Text>

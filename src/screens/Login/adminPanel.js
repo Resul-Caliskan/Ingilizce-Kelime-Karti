@@ -15,7 +15,7 @@ export default function AdminPanel() {
     try {
       const db = firebase.firestore();
 
-      await db.collection("gruplar").doc("isDunyasi").set(data);
+      await db.collection("gruplar").doc("kelimeler").set(data);
 
       console.log("Veri Firebase'e gönderildi.");
     } catch (error) {

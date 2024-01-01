@@ -11,13 +11,25 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from "../../constants/colors";
 import * as Speech from "expo-speech";
 const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
+  const [loading, setLoading] = useState(false);
   const handleAddToList = () => {
     // Listeye ekleme işlevi burada olacak
   };
-  const handlePlaySound = () => {
-    // Ses oynatma işlevi burada olacak
-    Speech.speak(ingilizceKelime, { language: "en" });
+  const kelimeyiSeslendir = (Kelime) => {
+    setLoading(true);
+
+    Speech.speak(Kelime, {
+      language: "en",
+      onDone: () => {
+        setLoading(false);
+      },
+      onError: (error) => {
+        setLoading(false);
+        console.error("Speech synthesis error:", error);
+      },
+    });
   };
+
 
   return (
     <View style={styles.container}>
@@ -32,17 +44,35 @@ const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
         <View style={styles.frontFace}>
           <View style={styles.textView}>
             <Text style={[styles.text, { margin: 15 }]}>
-              {ingilizceKelime}Hello
+              {ingilizceKelime}
             </Text>
             <Text style={[styles.text, { borderTopWidth: 1 }]}>{okunusu}</Text>
 
-            <TouchableOpacity style={styles.voice} onPress={handlePlaySound}>
-              <MaterialCommunityIcons
-                name="account-voice"
-                color={Colors.black}
-                size={30}
-              />
-            </TouchableOpacity>
+            <TouchableOpacity
+          disabled={loading}
+          style={styles.voice}
+          onPress={() => kelimeyiSeslendir(ingilizceKelime)}
+        >
+          {loading ? (
+            <MaterialCommunityIcons
+              name="progress-download"
+              color="dodgerblue"
+              size={30}
+            />
+          ) : (
+            <MaterialCommunityIcons
+              style={{
+                backgroundColor: "#383e42",
+                borderRadius: 5,
+                borderWidth: 0.3,
+                borderColor: "white",
+              }}
+              name="account-voice"
+              color={"white"}
+              size={30}
+            />
+          )}
+        </TouchableOpacity>
             <MaterialCommunityIcons
               style={styles.turnCard}
               name="cursor-default-click-outline"

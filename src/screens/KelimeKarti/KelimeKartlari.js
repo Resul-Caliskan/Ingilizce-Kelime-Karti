@@ -11,25 +11,11 @@ import KelimeKarti from "./kelimeKarti";
 import { Colors } from "../../constants/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const kelimeler = [
-  {
-    ingilizceKelime: "Hello World",
-    okunusu: "həˈloʊ",
-    turkceAnlam: "Merhaba",
-  },
-  {
-    ingilizceKelime: "World",
-    okunusu: "wɜːrld",
-    turkceAnlam: "Dünya",
-  },
-  {
-    ingilizceKelime: "entertainment",
-    okunusu: "riˈækt",
-    turkceAnlam: "Tepki",
-  },
-];
 
-const KelimeKartlari = ({navigation}) => {
+const KelimeKartlari = ({navigation,route}) => {
+  const {kelimeler}=route.params;
+  console.log("------------");
+  console.log(kelimeler);
   return (
     <View style={styles.container}>
       <View style={styles.innerContaier}>
@@ -53,9 +39,9 @@ const KelimeKartlari = ({navigation}) => {
           {kelimeler.map((kelime, index) => (
             <KelimeKarti
               key={index}
-              ingilizceKelime={kelime.ingilizceKelime}
+              ingilizceKelime={kelime.ingilizce}
               okunusu={kelime.okunusu}
-              turkceAnlam={kelime.turkceAnlam}
+              turkceAnlam={kelime.turkce}
             />
           ))}
         </ScrollView>
