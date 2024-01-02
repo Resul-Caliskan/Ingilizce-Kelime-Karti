@@ -30,7 +30,7 @@ function HomeStack() {
         tabBarActiveTintColor: Colors.honeydew,
         tabBarInactiveTintColor: Colors.anaEkranYazi,
         tabBarLabelStyle: {
-          fontSize: 14, // Yazı boyutunu ayarla
+          fontSize: 12, // Yazı boyutunu ayarla
           fontWeight: "700",
           flexWrap: "wrap",
         },

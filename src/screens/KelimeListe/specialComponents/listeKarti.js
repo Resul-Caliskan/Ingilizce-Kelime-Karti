@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Dimensions,
-} from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
 import * as Progress from "react-native-progress";
 
 const Card = ({ id, bgColor, imageSource, text, progress, textColor }) => {
@@ -30,11 +24,14 @@ const Card = ({ id, bgColor, imageSource, text, progress, textColor }) => {
           progress={progress}
           width={100}
           borderWidth={2}
+          borderRadius={0}
           borderColor={textColor}
-          color="limegreen"
-          height={8}
+          color={textColor}
+          height={6}
         />
-        <Text style={{ color: textColor }}>%{parseInt(progress * 100)}</Text>
+        <Text style={{ color: textColor, fontSize: 16, fontWeight: "600" }}>
+          %{parseInt(progress * 100)}
+        </Text>
       </View>
     </View>
   );
