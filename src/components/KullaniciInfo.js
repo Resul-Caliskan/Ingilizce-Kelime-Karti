@@ -35,11 +35,7 @@ const KullaniciInfo = ({
         </Text>
         <Text style={styles.continueText}>{mesaj}</Text>
         <View style={styles.header}>
-          <Text style={styles.continueText}>{basariSirasi}</Text>
-          <Image
-            style={styles.avatar2}
-            source={require("../../assets/adaptive-icon.png")}
-          />
+          <Text style={styles.continueText}>{basariSirasi} 🪙</Text>
         </View>
       </View>
     </View>

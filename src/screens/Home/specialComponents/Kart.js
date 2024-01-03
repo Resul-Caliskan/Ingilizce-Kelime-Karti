@@ -44,21 +44,21 @@ const Kart = () => {
         <FlipCard style={styles.card}>
           {/* Kartın ön yüzü */}
           <View style={styles.face}>
-            <Image
+            {/* <Image
               resizeMode="cover"
               source={require("../../../../assets/fire.png")}
               style={styles.image}
-            />
-            <Text style={styles.text}>English sentence of the day</Text>
+            /> */}
+            <Text style={styles.text}>No amount of worry can change the future</Text>
           </View>
           {/* Kartın arka yüzü */}
           <View style={styles.face}>
-            <Image
+            {/* <Image
               resizeMode="cover"
               source={require("../../../../assets/fire.png")}
               style={styles.image}
-            />
-            <Text style={styles.text}>Günün cümlesinin türkçesi</Text>
+            /> */}
+            <Text style={styles.text}>Hiçbir kaygı geleceği değiştiremez</Text>
           </View>
         </FlipCard>
       </View>

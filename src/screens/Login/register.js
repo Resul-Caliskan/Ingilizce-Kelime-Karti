@@ -14,7 +14,7 @@ const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [score, setScore] = useState(0);
-  const [weeklyStats, setWeeklyStats] = useState([0, 0, 0, 0, 0, 0, 0, 0]);
+  const [weeklyStats, setWeeklyStats] = useState([0, 0, 0, 0, 0, 0, 0]);
   const handleRegister = async () => {
     try {
       const userCredential = await firebase

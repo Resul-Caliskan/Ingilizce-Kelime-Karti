@@ -1,22 +1,14 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import { Colors } from "../../../constants/colors";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 const chartConfig = {
-  // backgroundGradientFrom: Colors.navyBlue,
   backgroundGradientFromOpacity: 0,
-  // backgroundGradientTo: "",
+
   backgroundGradientToOpacity: 0,
-  // fillShadowGradient: "rgb(26, 255, 146)", // The color used for the fill shadow gradient
+
   fillShadowGradientOpacity: 0,
   color: () => Colors.anaEkranYazi,
   labelColor: () => Colors.anaEkranYazi,
@@ -27,16 +19,14 @@ const chartConfig = {
     letterSpacing: 1,
   },
   propsForDots: {
-    // Customization properties for the dots in line chart
-    r: "6", // Radius of the dots
-    strokeWidth: "3", // Stroke width of the dots
+    r: "4", // Radius of the dots
+    strokeWidth: "1", // Stroke width of the dots
     stroke: "#ffffff", // Stroke color of the dots
   },
-  useShadowColorFromDataset: false, // optional
+  useShadowColorFromDataset: false,
 };
 
 const Seriler = ({ seriesName, userId }) => {
-  const [Id, setId] = useState("");
   const [data, setData] = useState({
     labels: [
       "Pazartesi",
@@ -55,12 +45,11 @@ const Seriler = ({ seriesName, userId }) => {
   });
   const fetchData = async () => {
     try {
-      await setId(userId);
       // Firestore'dan belirli bir kullanıcının verilerini çek
       const userDoc = await firebase
         .firestore()
         .collection("users")
-        .doc(Id)
+        .doc(userId)
         .get();
       if (userDoc.exists) {
         const userData = userDoc.data();
@@ -97,19 +86,19 @@ const Seriler = ({ seriesName, userId }) => {
   };
   return (
     <View style={styles.card}>
-      <TouchableOpacity style={styles.reloadButton} onPress={handleReload}>
+      {/* <TouchableOpacity style={styles.reloadButton} onPress={handleReload}>
         <Text style={styles.reloadButtonText}>Reload</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <View style={styles.header}>
-        <Text style={styles.seriesName}>Serim {seriesName}</Text>
-        <Image
+        <Text style={styles.seriesName}>Haftalık İlerlemem </Text>
+        {/* <Image
           style={styles.avatar}
           source={require("../../../../assets/fire.png")}
         />
-        <Text style={styles.seriesName}>gündür devam ediyor</Text>
+        <Text style={styles.seriesName}>gündür devam ediyor</Text> */}
       </View>
       <LineChart
-       style={{position:"absolute",left:0,top:45}}
+        style={{ position: "absolute", left: 0, top: 45 }}
         data={data}
         width={Dimensions.get("window").width - 70}
         height={Dimensions.get("window").height / 4.4}
@@ -131,7 +120,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     padding: 10,
     margin: 15,
-    alignItems: "flex-start",
+    alignItems: "center",
   },
   header: {
     flexDirection: "row",
