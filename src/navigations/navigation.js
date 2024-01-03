@@ -14,11 +14,13 @@ import YazmaTest from "../screens/Test/Testler/yazmaTesti";
 import LoginScreen from "../screens/Login/login";
 import AdminLoginScreen from "../screens/Login/adminLogin";
 import AdminPanel from "../screens/Login/adminPanel";
+import RegisterScreen from "../screens/Login/register";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-function HomeStack() {
+function HomeStack({ route }) {
+  const email = route.params;
   return (
     <Tab.Navigator
       screenOptions={{
@@ -39,6 +41,7 @@ function HomeStack() {
       <Tab.Screen
         name="Anasayfa"
         component={HomeScreen}
+        initialParams={email}
         options={{
           tabBarLabel: "Anasayfa",
           tabBarIcon: ({ color, size }) => (
@@ -97,6 +100,7 @@ export default function BottomNavigation() {
       >
         <Stack.Group>
           <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="AdminLogin" component={AdminLoginScreen} />
           <Stack.Screen name="AdminPanel" component={AdminPanel} />
         </Stack.Group>

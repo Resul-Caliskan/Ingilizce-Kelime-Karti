@@ -202,6 +202,7 @@ export default function Gruplar({ navigation }) {
     navigation,
   ]);
   useEffect(() => {
+    
     data.forEach((item) => {
       setProgresses((prev) => ({
         ...prev,

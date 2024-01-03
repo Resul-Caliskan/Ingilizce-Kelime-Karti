@@ -6,26 +6,30 @@ import { Colors } from "../../constants/colors";
 import Kart from "./specialComponents/Kart";
 import AnimatedButton from "./specialComponents/kelimeGrupButon";
 
-export default function HomeScreen({navigation}) {
-  onPressHandler =()=>{
-    navigation.navigate('Gruplar');
-  }
+const HomeScreen = ({ navigation, route }) => {
+  const { email } = route.params;
+  onPressHandler = () => {
+    navigation.navigate("Gruplar");
+  };
   return (
     <View style={styles.back}>
       <View style={styles.container}>
-        <KullaniciInfo userName={"Resul"} basariSirasi={"Sıralaman: 7"} hosgeldin={"Hoş Geldin "} mesaj={"Hadi Öğrenmeye Başlayalım"} />
-        <Seriler seriesName={"7"} />
+        <KullaniciInfo
+          userName={"Resul"}
+          basariSirasi={"Sıralaman: 7"}
+          hosgeldin={"Hoş Geldin "}
+          mesaj={"Hadi Öğrenmeye Başlayalım"}
+        />
+        <Seriler seriesName={"7"} userId={email} />
         <Kart />
-        <AnimatedButton onPress={onPressHandler}/>
+        <AnimatedButton onPress={onPressHandler} />
       </View>
     </View>
   );
-}
+};
 const styles = StyleSheet.create({
   back: {
     flex: 1,
-    width: "100%",
-    height: "100%",
     justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: Colors.element1,
@@ -35,9 +39,9 @@ const styles = StyleSheet.create({
     borderBottomEndRadius: 30,
     borderBottomStartRadius: 30,
     width: "100%",
-    height: "100%",
     justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: Colors.backgroundColor,
   },
 });
+export default HomeScreen;

@@ -22,11 +22,11 @@ const fetchDataAndNavigate = async (collectionName, documentName, datas,group,co
 };
 checkSwitch = (param) => {
   switch (param) {
-    case '1':
+    case 1:
       return "IsDunyasi";
-    case '2':
+    case 2:
       return "GeziVeSeyahat";
-    case '3':
+    case 3:
       return "EvVeEsyalar";
     default:
       return "IsDunyasi";
@@ -137,7 +137,7 @@ const ModalComponent = ({
           disabled={count == 0 ? true : false}
           onPress={() => {
             // kelimeler alındıktan sonra diğer işlemleri gerçekleştiriyoruz
-            const group=checkSwitch (id);
+            const group=checkSwitch (id%4);
             fetchDataAndNavigate(collectionName, documentName, datas,group,count,navgation);
             setModalVisible(!modalVisible);
             setCount(0);

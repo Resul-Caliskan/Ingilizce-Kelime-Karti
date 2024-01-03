@@ -22,11 +22,9 @@ async function scheduleNotification() {
   console.log(randomWord);
   await Notifications.scheduleNotificationAsync({
     content: {
-      title: randomWord
-        ? `Yeni Kelime: ${randomWord.ingilizce}`
-        : "Kelime Getirilemedi",
+      title: `Adım Adım İngilizce 🎯`,
       body: randomWord
-        ? `Kelime: ${randomWord.ingilizce}  Kelimenin Anlamı: ${randomWord.turkce}`
+        ? `Kelime: ${randomWord.ingilizce}  \nKelimenin Anlamı: ${randomWord.turkce}   \nOkunuşu: ${randomWord.okunusu}`
         : "Bu bir arka plan bildirimidir.",
     },
     trigger: null,
@@ -36,7 +34,7 @@ async function scheduleNotification() {
 export async function registerBackgroundTask() {
   try {
     await BackgroundFetch.registerTaskAsync(taskName, {
-      minimumInterval: 2 * 60, // 15 dakika çekeceğim
+      minimumInterval: 15 * 60, // 15 dakika çekeceğim
       stopOnTerminate: false,
       startOnBoot: true,
     });

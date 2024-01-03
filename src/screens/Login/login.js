@@ -10,6 +10,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Colors } from "../../constants/colors";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/database";
+import firebaseConfig from "../../backEnd/firebaseFunctions/firebaseConfig";
+
+firebase.initializeApp(firebaseConfig);
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -17,11 +23,18 @@ const LoginScreen = ({ navigation }) => {
   const [yanlis, setYanlis] = useState("");
   const [admin, setAdmin] = useState(0);
 
-  const handleLogin = () => {
-    navigation.replace("Home");
-    if ((email === "resulcaliskansau@gmail.com") & (password === "1071")) {
-      navigation.replace("Home");
-    } else {
+  const handleLogin = async () => {
+    try {
+      const userCredential = await firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
+          navigation.replace("Home", { email: email });
+        });
+
+      // Kullanıcı girişi başarılıysa, kullanıcı ana sayfaya yönlendirilir.
+    } catch (error) {
+      console.error("Kullanıcı girişi hatası:", error.message);
       setYanlis("Yanlış Tekrardan Gir");
       setEmail("");
       setPassword("");
@@ -33,6 +46,9 @@ const LoginScreen = ({ navigation }) => {
       setAdmin(0);
       navigation.navigate("AdminLogin");
     }
+  };
+  const handleRegisterButton = () => {
+    navigation.navigate("Register");
   };
   return (
     <View style={styles.container}>
@@ -65,10 +81,14 @@ const LoginScreen = ({ navigation }) => {
           value={password}
         />
       </View>
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>{yanlis}</Text>
-        <Text style={styles.forgot_button}>Şifreyi Unuttum?</Text>
+      <Text style={styles.forgot_button}>{yanlis}</Text>
+      <TouchableOpacity onPress={handleRegisterButton}>
+        <Text style={styles.forgot_button}>Hesabınız yok mu? Kayıt Olun!</Text>
       </TouchableOpacity>
+
+      {/* <TouchableOpacity>
+        <Text style={styles.forgot_button}>Şifreyi Unuttum?</Text>
+      </TouchableOpacity> */}
       <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
         <Text style={styles.loginText}>Giriş</Text>
       </TouchableOpacity>
