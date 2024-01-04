@@ -11,48 +11,23 @@ import FlipCard from "react-native-flip-card";
 import { Colors } from "../../../constants/colors";
 const { width, height } = Dimensions.get("window");
 const Kart = () => {
-  const colorAnimation = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(colorAnimation, {
-          toValue: 1,
-          duration: 2000,
-          useNativeDriver: false,
-        }),
-        Animated.timing(colorAnimation, {
-          toValue: 0,
-          duration: 2000,
-          useNativeDriver: false,
-        }),
-      ])
-    ).start();
-  }, []);
-
-  const animatedStyle = {
-    borderRadius: 20,
-    margin: 5,
-    backgroundColor: colorAnimation.interpolate({
-      inputRange: [0, 1],
-      outputRange: ["#ADD8E6","#F0F8FF"],
-    }),
-  };
   return (
-    <Animated.View style={animatedStyle}>
+    <View style={styles.container}>
       <View style={styles.card}>
         <FlipCard style={styles.card}>
           {/* Kartın ön yüzü */}
-          <View style={styles.face}>
+          <View style={[styles.face,{backgroundColor:Colors.gunluk1}]}>
             {/* <Image
               resizeMode="cover"
               source={require("../../../../assets/fire.png")}
               style={styles.image}
             /> */}
-            <Text style={styles.text}>No amount of worry can change the future</Text>
+            <Text style={styles.text}>
+              No amount of worry can change the future
+            </Text>
           </View>
           {/* Kartın arka yüzü */}
-          <View style={styles.face}>
+          <View style={[styles.face,{backgroundColor:Colors.limeGreen}]}>
             {/* <Image
               resizeMode="cover"
               source={require("../../../../assets/fire.png")}
@@ -62,11 +37,12 @@ const Kart = () => {
           </View>
         </FlipCard>
       </View>
-    </Animated.View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: { borderRadius: 20, margin: 5 },
   card: {
     width: width / 1.1,
     height: height / 7,
@@ -84,6 +60,7 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   text: {
+    paddingHorizontal:2,
     fontSize: 16,
     fontWeight: "bold",
     color: Colors.anaEkranYazi,

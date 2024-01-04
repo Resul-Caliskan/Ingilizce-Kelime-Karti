@@ -12,8 +12,10 @@ import { Colors } from "../../constants/colors";
 import * as Speech from "expo-speech";
 const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
   const [loading, setLoading] = useState(false);
+  const [add, setAdd] = useState(false);
   const handleAddToList = () => {
     // Listeye ekleme işlevi burada olacak
+    setAdd(!add);
   };
   const kelimeyiSeslendir = (Kelime) => {
     setLoading(true);
@@ -30,7 +32,6 @@ const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
     });
   };
 
-
   return (
     <View style={styles.container}>
       <FlipCard
@@ -43,36 +44,34 @@ const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
         {/* Ön yüz */}
         <View style={styles.frontFace}>
           <View style={styles.textView}>
-            <Text style={[styles.text, { margin: 15 }]}>
-              {ingilizceKelime}
-            </Text>
+            <Text style={[styles.text, { margin: 15 }]}>{ingilizceKelime}</Text>
             <Text style={[styles.text, { borderTopWidth: 1 }]}>{okunusu}</Text>
 
             <TouchableOpacity
-          disabled={loading}
-          style={styles.voice}
-          onPress={() => kelimeyiSeslendir(ingilizceKelime)}
-        >
-          {loading ? (
-            <MaterialCommunityIcons
-              name="progress-download"
-              color="dodgerblue"
-              size={30}
-            />
-          ) : (
-            <MaterialCommunityIcons
-              style={{
-                backgroundColor: "#383e42",
-                borderRadius: 5,
-                borderWidth: 0.3,
-                borderColor: "white",
-              }}
-              name="account-voice"
-              color={"white"}
-              size={30}
-            />
-          )}
-        </TouchableOpacity>
+              disabled={loading}
+              style={styles.voice}
+              onPress={() => kelimeyiSeslendir(ingilizceKelime)}
+            >
+              {loading ? (
+                <MaterialCommunityIcons
+                  name="progress-download"
+                  color="dodgerblue"
+                  size={30}
+                />
+              ) : (
+                <MaterialCommunityIcons
+                  style={{
+                    backgroundColor: "#383e42",
+                    borderRadius: 5,
+                    borderWidth: 0.3,
+                    borderColor: "white",
+                  }}
+                  name="account-voice"
+                  color={"white"}
+                  size={30}
+                />
+              )}
+            </TouchableOpacity>
             <MaterialCommunityIcons
               style={styles.turnCard}
               name="cursor-default-click-outline"
@@ -84,6 +83,14 @@ const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
           <TouchableOpacity onPress={handleAddToList}>
             <View style={styles.add}>
               <Text style={styles.text2}>Listeme Ekle</Text>
+              {add ? (
+                <MaterialCommunityIcons
+                  style={{color:Colors.limeGreen}}
+                  name="check"
+                  color={Colors.black}
+                  size={25}
+                />
+              ) : null}
             </View>
           </TouchableOpacity>
         </View>
@@ -101,6 +108,14 @@ const KelimeKarti = ({ ingilizceKelime, okunusu, turkceAnlam }) => {
           <TouchableOpacity onPress={handleAddToList}>
             <View style={styles.add}>
               <Text style={styles.text2}>Listeme Ekle</Text>
+              {add ? (
+                <MaterialCommunityIcons
+                  style={{color:Colors.limeGreen}}
+                  name="check"
+                  color={Colors.black}
+                  size={25}
+                />
+              ) : null}
             </View>
           </TouchableOpacity>
         </View>
@@ -173,10 +188,11 @@ const styles = StyleSheet.create({
     bottom: 10,
   },
   add: {
+    flexDirection:"row",
     borderRadius: 10,
     margin: 15,
-    backgroundColor: Colors.limeGreen,
+    backgroundColor: Colors.gunluk1,
     padding: 8,
   },
-  text2: { fontSize: 16, fontWeight: "500" },
+  text2: { fontSize: 16, fontWeight: "500" ,paddingRight:2},
 });

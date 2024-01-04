@@ -34,7 +34,7 @@ async function scheduleNotification() {
 export async function registerBackgroundTask() {
   try {
     await BackgroundFetch.registerTaskAsync(taskName, {
-      minimumInterval: 15 * 60, // 15 dakika çekeceğim
+      minimumInterval: 2 * 60, // 15 dakika çekeceğim
       stopOnTerminate: false,
       startOnBoot: true,
     });

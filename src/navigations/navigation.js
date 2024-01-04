@@ -15,6 +15,7 @@ import LoginScreen from "../screens/Login/login";
 import AdminLoginScreen from "../screens/Login/adminLogin";
 import AdminPanel from "../screens/Login/adminPanel";
 import RegisterScreen from "../screens/Login/register";
+import LeaderboardScreen from "../screens/LeaderBoard/board";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -65,7 +66,8 @@ function HomeStack({ route }) {
       />
       <Tab.Screen
         name="Tablo"
-        component={TestListe}
+        component={LeaderboardScreen}
+        initialParams={email}
         options={{
           tabBarLabel: "Liderlik Tablosu",
           tabBarIcon: ({ color, size }) => (
@@ -77,7 +79,7 @@ function HomeStack({ route }) {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Profil"
         component={HomeScreen}
         options={{
@@ -86,7 +88,7 @@ function HomeStack({ route }) {
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 }

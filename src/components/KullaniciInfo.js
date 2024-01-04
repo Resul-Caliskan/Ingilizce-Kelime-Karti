@@ -31,11 +31,11 @@ const KullaniciInfo = ({
       <View style={styles.textView}>
         <Text style={styles.welcomeText}>
           {hosgeldin}
-          {userName},
+          {userName}
         </Text>
         <Text style={styles.continueText}>{mesaj}</Text>
         <View style={styles.header}>
-          <Text style={styles.continueText}>{basariSirasi} 🪙</Text>
+          <Text style={styles.continueText}>{basariSirasi} </Text>
         </View>
       </View>
     </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "flex-end",
     padding: 20,
-    // marginTop: StatusBar.currentHeight,
+    marginTop: StatusBar.currentHeight,
   },
   header: {
     flexDirection: "row",
